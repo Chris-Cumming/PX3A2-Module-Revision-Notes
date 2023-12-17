@@ -4,9 +4,59 @@
 
 \section{Introduction}
 
-In the previous section we applied a perturbation to a known system and found the first and second order corrections to energy eigenvalues and the first order correction to eigenstates. However we assumed that there was no degeneracy involved. By considering Eq~\ref{FirstOrderEigenstateCorrection} and Eq~\ref{FirstOrderEnergyCorrection} we can see that if there are degenerate energy levels, i.e distinct eigenstates with the same eigenvalue $E^0_p = E^0_n$, then we have a problem.
+In the previous section we applied a perturbation to a known system and found the first and second order corrections to energy eigenvalues and the first order correction to eigenstates. However we assumed that there was no degeneracy involved. If our system we are considering does have degenerate energy levels, i.e distinct eigenstates with the same eigenvalue then problems arise. By considering Eq~\ref{FirstOrderEigenstateCorrection} and Eq~\ref{FirstOrderEnergyCorrection} we can see that if there are degenerate energy levels, where $E^0_p = E^0_n$, then these expressions diverge. Thankfully we can alter the process to account for this degeneracy and still find values for our system.
 
 \section{Derivation}
+
+As with the non-degenerate case, as far as I'm aware this derivation is not examinable so feel free to skip it. Also this is not the most rigorous of derivations either.
+
+\noindent Consider $E^0_n$, and eigenvalue of the unperturbed Hamiltonian $\Hat{H_0}$. Suppose it is s-fold degenerate, so there are s linearly independent eigenstates which have energy $E^0_n$. We shall label these as $\ket{u^0_{n \alpha}}$ and assume that they are orthornormal to each other:
+
+\begin{equation}
+        \braket{u^0_{n \alpha} | u^0_{n \beta}} = \delta_{\alpha \beta},
+    \label{DegenerateEigenfunctions}
+\end{equation}
+
+\noindent where $\alpha, \beta$ = 1, 2, 3, ..., s are labels for the s degenerate eigenstates of the $n^{th}$ energy level.
+
+\noindent Since any linear combination of $\ket{u^0_{n \alpha}}$ is an eigenstate of $\Hat{H_0}$ then the unperturbed states, we used previously in non-degenerate PT, are not uniquely defined and so can't be used for PT. Therefore we need to find the correct normalised states which can be used in PT. Note there will be s of these states. We write these states in the following form:
+
+\begin{equation}
+    \ket{\phi^0_{ni}} = \sum^s_{\alpha = 1} c_{i\alpha} \ket{u^0_{n \alpha}}
+    \label{LinearCombinationDegenerateStates},
+\end{equation}
+
+\noindent where the $c_{i\alpha}$ ensures we have the correct linear combination of unperturbed degenerate states to use in PT, and i = 1, 2, 3, ..., s.
+
+\noindent From Eq~\ref{FirstOrderEigenstateCorrection} and Eq~\ref{FirstOrderEnergyCorrection}, we can see the denominator tends to 0 as the system tends towards degeneracy. In order to ensure we have valid perturbative expansions, like Eq~\ref{EigenstatePT} and Eq~\ref{EigenvaluePT}, we make the numerator tend to 0 as well. This is ensured by the condition:
+
+\begin{equation}
+    \braket{\phi^0_{ni} | \Hat{V} | \phi^0_{nj}} = \braket{\phi^0_{ni} | \Hat{V} | \phi^0_{ni}} \delta_{ij}
+    \label{MatrixCondition}
+\end{equation}
+
+\noindent which can be represented as an $s \times s$ diagonal matrix which ensures our perturbation expansions are valid. This means that we can now follow the same process as for the non-degenerate case, which results in a slightly modified Eq~\ref{FirstOrderEnergyCorrection}:
+
+\begin{equation}
+    \boxed{E^1_{ni} = \braket{\phi^0_{ni} | \Hat{V} | \phi^0_{ni}}}.
+    \label{FirstOrderEnergyCorrectionsDegenerate}
+\end{equation}
+
+\noindent Analogous to before, the first order correction for the $i^{th}$ degenerate state of the $n^{th}$ energy level is given by the expectation value of the $i^{th}$ eigenstate with the perturbation.
+
+\noindent However you wouldn't normally used Eq~\ref{FirstOrderEnergyCorrectionsDegenerate}, since it doesn't tell you the correct linear combination of $\ket{u^0_{n \alpha}}$ which allows PT to work. There is an easier way to find the first order corrections for each of the degenerate eigenstates as well as the coefficients, $c_{i \alpha}$. You'll have to forgive me for not writing out the derivation for this as its just disgusting, but results in solving the eigenvalue equation:
+
+\begin{equation}
+    \boxed{\sum^s_{\alpha = 1} (\braket{u^0_{n\beta} | \Hat{V} | u^0_{n\alpha}} - E^1_{ni} )c_{i \alpha} = 0}.
+    \label{DegenerateMatrixEquation}
+\end{equation}
+
+\noindent This is most nicely represented by a matrix equation, where $\sum^s_{\alpha = 1} (\braket{u^0_{n\beta} | \Hat{V} | u^0_{n\alpha}}$ is the matrix, the elements of which are determined by the expectation value of the degenerate eigenstates with the perturbation. This then operates on the vector with components $c_{i \alpha}$, and then returns the same vector multiplied by the eigenvalue of $E^1_{ni}$.
+
+\noindent So in order to find the first order corrections to the degenerate energy levels and their corresponding wave functions you simply solve Eq~\ref{DegenerateMatrixEquation} like any other eigenvalue equation. The eigenvalues of the matrix determine the first order corrections, $E^1_{ni}$, which can are then re-inserted back into the equation to find $c_{i \alpha}$. This then means you can determine $\ket{\phi_{ni}}$ for each $E^1_{ni}$, using Eq~\ref{LinearCombinationDegenerateStates}.
+
+\noindent Don't worry if none of this is making any sense it will make a lot more sense once you see an example and there aren't tons of greek letters and summation symbols all over the place.
+
 
 \section{Example: 2D SHO}
 
