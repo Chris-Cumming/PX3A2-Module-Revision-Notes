@@ -1,0 +1,75 @@
+\chapter{Variational Method}
+\label{chapt3}
+
+\section{Introduction}
+
+The variational, or Rayleigh-Ritz, method is another approximation method we can use. We use this when dealing with a system where only the form of the Hamiltonian is known exactly. It involves making a prediction of what the ground state wave function of the system would look like and using this to calculate an upper bound for the energy of the ground state. This method can be applied to excited states as well, however it is slightly more complicated and you don't need to worry about this.
+
+\section{Derivation}
+
+From the third postulate of quantum mechanics, we know that any state of a particular system, $\psi$, can be expressed as a linear combination of the eigenstates of an operator, such as the Hamiltonian, so long as they form a complete set:
+
+\begin{equation}
+    \ket{\psi} = \sum_n = c_n \ket{\phi_n},
+    \label{ExpansionWavefunction}
+\end{equation}
+
+\noindent where $\ket{\phi_n}$ are the eigenstates of $\Hat{H}$ and the sum is over the complete set of these eigenstates. Then considering the expectation value of $\Hat{H}$:
+
+\begin{equation}
+    \braket{\Hat{H}} = \frac{\braket{\psi | \Hat{H} | \psi}}{\braket{\psi | \psi}} = \braket{\psi | \Hat{H} | \psi},
+    \label{ExpectationValue}
+\end{equation}
+
+\noindent where we assume $\psi$ is normalised. Then inserting Eq~\ref{ExpansionWavefunction} into Eq~\ref{ExpectationValue}, we find:
+
+\begin{equation}
+    \braket{\Hat{H}} = \sum_n = |c_n|^2 E_n.
+    \label{ExpectationValueExpanded}
+\end{equation}
+
+\noindent This means if we take $\psi$ to be our trial wave function that we guess, which I'll label as $\psi_T$, then $\braket{\Hat{H}} \geq E_1$ which is the ground state of the system. This is because we assume that the energy eigenvalues, $E_n$, of $\phi_n$ are ordered such that $E_1 < E_2 < E_3 < E_4$. So unless we accidentally pick the exact ground eigenstate of the Hamiltonian then our trial wave function will be a combination of excited eigenstates of the Hamiltonian, as we predict from Eq~\ref{ExpansionWavefunction}. So our expectation value of the Hamiltonian will contain the sum of the corresponding energy eigenvalues for these eigenstates. For example if we let our trial wave function take the form:
+
+\begin{equation}
+    \ket{\psi_T} = c_1 \ket{\phi_1} + c_5 \ket{\phi_5} + c_{23} \ket{\phi_{22}},
+    \label{Example1Wavefunction}
+\end{equation}
+
+\noindent where $c_1, c_5, c_{23} \neq 0$. Then Eq~\ref{ExpectationValueExpanded} predicts:
+
+\begin{equation}
+    \braket{\Hat{H}} = |c_1|^2 E_1 + |c_5|^2 E_5 + |c_{23}|^2 E_{23},
+    \label{Example1Value}
+\end{equation}
+
+\noindent which must be larger than $E_1$. However if we say that:
+
+\begin{equation}
+    \ket{\psi_T} = c_1 \ket{\phi_1} = \ket{\phi_1},
+    \label{Example2Wavefunction}
+\end{equation}
+
+\noindent where $c_1 = 1$ as $\ket{\psi_T}$ must be normalised. Then from Eq~\ref{ExpectationValueExpanded}:
+
+\begin{equation}
+    \braket{\Hat{H}} = |c_1|^2 E_1 = E_1.
+    \label{Example2Value}
+\end{equation}
+
+\noindent We choose a form for $\psi_T$ which is a function of some parameters that we can tune, $\alpha_i$, i.e $\psi_T = \psi_T (\alpha_1, \alpha_2, \alpha_3, ...)$. We then calculate the expectation value of the Hamiltonian with $\psi_T$ using Eq~\ref{ExpectationValue}. The expectation value is then minimised with respect to $\alpha_1, \alpha_2, \alpha_3, ...$ with the final result representing the best estimate of the ground state energy of the system using $\psi_T$ and an upper bound for the actual ground state energy of the system.
+
+
+\section{Key Results}
+
+The general process for the variational method to always follow is:
+
+\begin{itemize}
+    \item Ensure that $\psi_T$ is normalised.
+    \item Calculate $\braket{\Hat{H}}$ using trial wave function.
+    \item Differentiate $\braket{\Hat{H}}$ with respect to the variational parameter.
+    \item Calculate minimum value of $\braket{\Hat{H}}$ using previously found value for variational parameter.
+\end{itemize}
+
+\noindent In an exam you will never have to guess a wave function yourself, it will always be given to you and there will always only be one parameter to minimise $\braket{\Hat{H}}$ with respect to. Note if we have 2 trial wave functions, and one of them gives a lower value for $\braket{\Hat{H}}$ than the other, then this trial wave function gives a better estimate for the actual ground state energy of the system.
+
+\section{Exam Question?}

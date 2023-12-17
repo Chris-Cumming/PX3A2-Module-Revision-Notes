@@ -1,0 +1,134 @@
+\chapter{Non-Degenerate PT}
+\label{chapt1}
+
+\section{Introduction}
+
+The vast majority of systems we consider in quantum mechanics don't have exact solutions and so need to be approximated. In fact there are only 2 known systems which have been solved exactly. These are the simple harmonic oscillator (SHO) and the potential well. However if the system we want to find the eigenvalues and eigenstates for is similar to one of these, then we can use perturbation theory (PT) as a way to approximate these eigenvalues and eigenstates. This involves taking a system which has been solved exactly and applying a small correction to make it resemble the system we wish to solve, and then consider perturbative expansions of the values that change. You will find that perturbation theory is also used briefly in other modules such as PX3A5 and PX3A7.
+
+\section{Derivation}
+
+\noindent As far as I'm aware this derivation for the boxed expressions for non-degenerate PT is not examinable, so feel free to skip it. But you might find it useful to see where the expressions come from, so I'll briefly lay it out here.
+
+\noindent We wish to find the corrections to our energy eigenvalues and corresponding eigenstates as a result of the perturbation we have applied. We begin by writing the Hamiltonian for our new perturbed system as:
+
+\begin{equation}
+    \Hat{H} = \Hat{H_0} + \beta \Hat{V},
+    \label{ModifidedHamiltonianPT}
+\end{equation}
+
+\noindent where $\Hat{H_0}$ is the Hamiltonian of our unperturbed solved system (like the SHO), $\Hat{V}$ is the perturbation we apply and $\beta$ is just a real number that controls the size of $\Hat{V}$. Here we assume that $\Hat{H_0}$ and $\Hat{V}$ are both hermitian, so that $\Hat{H}$ is also hermitian. We further assume that the eigenvalues of the unperturbed system are not degenerate, i.e there aren't any eigenstates with the same eigenvalue or an eigenstate with multiple eigenvalues. Note $0\leq \beta < 1$ otherwise the expansions will not converge.
+
+\noindent We then consider our normal Hamiltonian eigenvalue equation:
+
+\begin{equation}
+    \Hat{H} \ket{\psi_n} = E_n \ket{\psi_n},
+\end{equation}
+
+\noindent where $\ket{\psi_n}$ is the eigenstate of the perturbed state in the $n^{th}$ energy level, and $E_n$ is the energy of the $n^{th}$ energy level and $\Hat{H}$ is given by Eq~\ref{ModifidedHamiltonianPT}.
+
+\noindent Applying PT, the perturbative expansions of $E_n$ and $\ket{\psi_n}$ are:
+
+\begin{equation}
+    E_n = E^0_n + \beta E^1_n + \beta^2 E^2_n + \beta^3 E^3_n...,
+    \label{EigenvaluePT}
+\end{equation}
+
+\begin{equation}
+    \ket{\psi_n} = \ket{\phi^0_n} + \beta \ket{\phi^1_n} + \beta^2 \ket{\phi^2_n} + \beta^3 \ket{\phi^3_n}... ,
+    \label{EigenstatePT}
+\end{equation}
+
+\noindent where $\ket{\phi^0_n}$ and $E^0_n$ are the eigenstates and eigenvalues of the $n^{th}$ energy level of the unperturbed system, $\Hat{H_0}$. First order and above terms in $\beta$ represent corrections to the unperturbed values as a result of the perturbation, $\Hat{V}$. The superscript corresponds to the order of the correction, so $E^1_n$, is a first order correction to the $n^{th}$ eigenvalue of the unperturbed system, $E^2_n$ a second order correction, $E^3_n$ a third order correction, etc. The same is true for the eigenstates: $\ket{\phi^1_n}$, $\ket{\phi^2_n}$ and $\ket{\phi^3_n}$. 
+It might help to think of the perturbative expansions, Eq~\ref{EigenvaluePT} and Eq~\ref{EigenstatePT}, as Taylor series expansions of the eigenvalues and eigenstates about the unperturbed eigenvalue and eigenstate.
+
+\noindent For the following we assume that unperturbed eigenstates are orthonormal to one another and that corrections to the $n^{th}$ unperturbed eigenstate are orthonormal to the unperturbed eigenstate, i.e:
+
+\begin{equation}
+    \braket{\phi^0_n | \phi^0_m} = \delta_{nm}
+    \label{UnperturbedEigenstateOrthonormality}
+\end{equation}
+
+\begin{equation}
+    \braket{\phi^0_n | \phi^1_n} = \braket{\phi^0_n | \phi^2_n} = \braket{\phi^0_n | \phi^3_n} = ... = 0.
+    \label{EigenstateCorrectionsOrthogonal}
+\end{equation}
+
+\noindent Now combining Eq~\ref{ModifidedHamiltonianPT} - \ref{EigenstatePT}, we find:
+
+\begin{equation}
+    (\Hat{H_0} + \beta \Hat{V})(\ket{\phi^0_n} + \beta \ket{\phi^1_n} + \beta^2 \ket{\phi^2_n} + ...) = (E^0_n + \beta E^1_n + \beta^2 E^2_n + ...)(\ket{\phi^0_n} + \beta \ket{\phi^1_n} + \beta^2 \ket{\phi^2_n} + ...),
+    \label{ExpandedHamiltonian}
+\end{equation}
+
+\noindent we then expand this and equate powers of $\beta$ on the left and right hand side. So for zero order terms, i.e the terms which don't contain $\beta$, we find:
+
+\begin{equation}
+    \Hat{H_0} \ket{\phi^0_n} = E^0_n \ket{\phi^0_n},
+    \label{ZeroOrderTerms}
+\end{equation}
+
+\noindent as we would expect, the unperturbed Hamiltonian operating on an unperturbed eigenstate returns that same eigenstate with the corresponding unperturbed eigenvalue. Then for first order terms:
+
+\begin{equation}
+    \Hat{H_0} \ket{\phi^1_n} + \Hat{V} \ket{\phi^0_n} = E^0_n \ket{\phi^1_n} + E^1_n \ket{\phi^0_n},
+    \label{FirstOrderTerms}
+\end{equation}
+
+\noindent and to second order:
+
+\begin{equation}
+    \Hat{H_0} \ket{\phi^2_n} + \Hat{V} \ket{\phi^1_n} = E^0_n \ket{\phi^2_n} + E^1_n \ket{\phi^1_n} + E^2_n \ket{\phi^0_n}.
+    \label{SecondOrderTerms}
+\end{equation}
+
+\noindent By pre-multiplying Eq~\ref{FirstOrderTerms} by $\bra{\phi^0_n}$:
+
+\begin{equation}
+    E^0_n \braket{\phi^0_n | \phi^1_n} + \braket{\phi^0_n | \Hat{V} | \phi^0_n} = E^0_n \braket{\phi^0_n | \phi^1_n} + E^1_n \braket{\phi^0_n | \phi^0_n},
+    \label{FirstOrderMultiplied}
+\end{equation}
+
+\noindent where we can remove the $E^0_n$ and $E^1_n$ terms from within the bra-ket notation as they are just numbers.
+
+\noindent This then simplifies to give us:
+
+\begin{equation}
+    \boxed{E^1_n = \braket{\phi^0_n | \Hat{V} | \phi^0_n}}
+    \label{FirstOrderEnergyCorrection}
+\end{equation}
+
+\noindent thanks to the orthonormality condition, Eq~\ref{UnperturbedEigenstateOrthonormality}, we impose. This means that the first order correction to the $n^{th}$ energy eigenvalue is given by the expectation value of the $n^{th}$ eigenstate with the perturbation we have applied.
+
+\noindent Now in order to find the first order corrections to the eigenstates, we assume it takes the form:
+
+\begin{equation}
+    \ket{\phi^1_n} = \sum_{p, p \neq n} a_{np} \ket{\phi^0_p}
+    \label{AssumedFormFirstOrderEigenstateCorrection}
+\end{equation}
+
+\noindent i.e it is a linear combination of all the unperturbed eigenstates of the system, other than the one we are trying to find the correction for, $\ket{\phi^0_n}$. Then pre-multiplying Eq~\ref{FirstOrderTerms} by $\bra{\phi^0_m}$, where m $\neq n$, using Eq~\ref{AssumedFormFirstOrderEigenstateCorrection}, Eq~\ref{UnperturbedEigenstateOrthonormality} and Eq~\ref{EigenstateCorrectionsOrthogonal} we find:
+
+\begin{equation}
+    \boxed{\ket{\phi^1_n} = - \sum_{p, p \neq n} \frac{\bra{\phi^0_p}  \Hat{V}  \ket{\phi^0_n}}{{E^0_p - E^0_n}} \ket{\phi^0_p}}
+    \label{FirstOrderEigenstateCorrection}
+\end{equation}
+
+\noindent Following a similar process for the second order energy correction, we find:
+
+\begin{equation}
+    \boxed{E^2_n = - \sum_{p, p \neq n} \frac{|\bra{\phi^0_p}  \Hat{V}  \ket{\phi^0_n}|^2}{{E^0_p - E^0_n}}}
+    \label{SecondOrderEnergyCorrection}
+\end{equation}
+
+\noindent Note how the numerator, $|\bra{\phi^0_p}  \Hat{V}  \ket{\phi^0_n}|^2$, is always positive. So if we further assume that $E^0_p > E^0_n$ then its always true that $E^2_n < 0$.
+
+\section{Key Results}
+
+The important thing here is that even though we can't solve all systems exactly we can get pretty close to the actual values by considering a known system and altering it slightly with a small perturbation. The key equations, that unfortunately you have to remember and won't be given in the exam, are the boxed ones: Eq~\ref{FirstOrderEnergyCorrection}, Eq~\ref{FirstOrderEigenstateCorrection} and Eq~\ref{SecondOrderEnergyCorrection}. These give the first and second order corrections to the $n^{th}$ energy eigenvalue and the first order correction to the corresponding eigenfunction.
+
+
+\section{Exam Question?}
+
+
+
+
