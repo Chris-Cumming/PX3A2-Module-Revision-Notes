@@ -29,18 +29,98 @@ It is impossible to follow and identify one particular particle when dealing wit
     \label{ExchangeDegeneracy}
 \end{equation}
 
-\noindent this means that the eigenvalues are degenerate, this is what is known as exchange degeneracy.
+\noindent as no matter the order of the labels in the Hamiltonian we should get the same energy value. This means that the eigenvalues are degenerate with respect to these operators, this is known as exchange degeneracy.
 
 \section{Particle Exchange Operator}
 
+We can define an operator, $\Hat{P}_{ij}$ that exchanges the $i^{th}$ and $j^{th}$ particles with each other, such that:
 
+\begin{eqnarray}
+    \Hat{P}_{ij} \Hat{H}(i, j) \ket{\psi(i, j)} = \Hat{H}(j, i) \ket{\psi(j, i)} \\
+    \hspace{15mm} =\Hat{H}(i, j) \Hat{P}_{ij} \ket{\psi(i, j)},
+\end{eqnarray}
+
+\noindent where in between the lines we use Eq~\ref{ExchangeDegeneracy} and that $\ket{\psi(j, i)} = \Hat{P}_{ij} \ket{\psi(i, j)}$. From this we can see that:
+
+\begin{equation}
+    \Hat{P}_{ij} \Hat{H}(i, j) \ket{\psi(i, j)} = \Hat{H}(i, j) \Hat{P}_{ij} \ket{\psi(i, j)},
+    \label{ExchangeOperatorCommutator}
+\end{equation}
+
+\noindent which means that $[\Hat{H}(i, j), \Hat{P}_{ij}] = 0$, i.e the exchange operator commutes with the Hamiltonian operator, meaning they share a common set of eignenstates. Also as particles are indistinguishable, $\Hat{P}_{ij}$ must also commute with any operator that corresponds to an observable and so also share a common set of eigenstates.
+
+\noindent Applying the exchange operator twice on the same state returns us to the original state:
+
+\begin{equation}
+    \Hat{P}_{ij} \Hat{P}_{ij} \ket{\psi(i, j)} = \Hat{P}_{ij} \ket{\psi(j, i)} = \ket{\psi(i, j)},
+\end{equation}
+
+\noindent this means that the eigenvalues of $\Hat{P}_{ij}$ must be $\pm1$. The $+1$ eigenvalue indicates a symmetric eigenstate, whilst the $-1$ eigenvalue indicates a fully anti-symmetric eigenstate. This means any physically acceptable eigenstate that represents identical particles must be symmetric or fully anti-symmetric due to $\Hat{P}_{ij}$ commutating with operators representing physical observables and hence share a common set of eigenstates. Note that due to the TDSE, a symmetric eigenstate will remain symmetric and the same is true for an anti symmetric eigenstate.
 
 \section{Fermions and Bosons}
 
+If our eigenstate describes a collection of identical particles with half integer spin, then it is anti-symmetric, for example:
+
+\begin{equation}
+    \Psi (1, 2) = \frac{1}{\sqrt{2}} (\psi_a(1) \psi_b (2) - \psi_a (2) \psi_b (1)),
+    \label{AntiSymmetricEigenfunction}
+\end{equation}
+
+\noindent and so when the exchange operator is applied, we get an eigenvalue of $-1$. Note how if one of the particles (either particle  1 or 2) occupies the same quantum state as the other (a = b), then the eigenstate disappears:
+
+\begin{equation}
+    \Psi (1, 2) = \frac{1}{\sqrt{2}} (\psi_a(1) \psi_a (2) - \psi_a (2) \psi_a (1)) = 0.
+\end{equation}
+
+\noindent This is the Pauli Exclusion Principle (PEP). It says that any two half integer spin particles cannot occupy the exact same quantum state as each other. These half integer spin particles are known as Fermions, and they obey Fermi-Dirac statistics which is given by the Fermi-Dirac function:
+
+\begin{equation}
+    f(E) = \frac{1}{e^{\beta (E - \mu)} + 1},
+    \label{FermiDiracDistributionFunction}
+\end{equation}
+
+\noindent where $f(E)$ gives the average occupation of a quantum state of energy E, $\beta = \frac{1}{k_B T}$ and $\mu$ is the chemical potential of the system.
+
+\noindent However if our eigenstate describes a collection of identical particles with integer spin, then it is symmetric:
+
+\begin{equation}
+    \Psi (1, 2) = \frac{1}{\sqrt{2}} (\psi_a(1) \psi_b (2) + \psi_a (2) \psi_b (1)),
+    \label{SymmetricEigenfunction}
+\end{equation}
+
+\noindent where upon application of the exchange operator we the an eigenvalue of $+1$. These particles have no such restriction like the PEP. Integer spin particles are known as bosons and obey Bose-Einstein statistics which is described by the Bose-Einstein function:
+
+\begin{equation}
+    f(E) = \frac{1}{e^{\beta (E - \mu)} - 1},
+    \label{BoseEinsteinDistributionFunction}
+\end{equation}
+
+\noindent where the only difference from Eq~\ref{FermiDiracDistributionFunction} is that the sign in front of the 1 has changed.
+
+\noindent Normally eigenstates, at least of simple systems, can be split into a spatial component and a spin component. If we are considering a fermion, then this eigenstate must be anti-symmetric, this can either be achieved with either the spatial or spin components being anti-symmetric. Then when dealing with multiple fermions, say two electrons, this means the spin component may either by a spin singlet (symmetric) or a spin triplet (anti-symmetric).
+
+\noindent In order to form an anti-symmetric eigenstate for N non-interacting fermions within a common potential, we calculate the Slater determinant of an $n \times N$ matrix, where n is the number of eigenstates available for the N fermions. The Slater determinant looks something like:
+
+\begin{equation}
+    \renewcommand*{\arraystretch}{1.5}
+    \setlength\arraycolsep{20pt}
+    \Psi^{AS} (1, 2, ..., N) = \frac{1}{\sqrt{N!}} \begin{vmatrix} \phi_{E_a\sigma_a} (1) \hspace{2mm} \phi_{E_a\sigma_a} (2) \hspace{2mm} ... \hspace{2mm} \phi_{E_a\sigma_a} (N) \\ \phi_{E_b\sigma_b} (1) \hspace{2mm} \phi_{E_b\sigma_b} (2) \hspace{2mm} ... \hspace{2mm} \phi_{E_b\sigma_b} (N) \\ ... \\ \phi_{E_n\sigma_n} (1) \hspace{2mm} \phi_{E_n\sigma_n} (2) \hspace{2mm} ... \hspace{2mm} \phi_{E_n\sigma_n} (N)      \end{vmatrix}
+    \label{SlaterDeterminant}
+\end{equation}
+
+\noindent where $\frac{1}{\sqrt{N!}}$ is a normalisation constant and $\phi_{E_n\sigma_n} (N)$, is the eigenstate with energy $E_n$ and spin $\sigma_n$ that the $N^{th}$ fermion occupies. It's important to note that if we interchange two columns, this is equivalent to applying the exchange operator, and the sign of the determinant changes. Also if we attempt to put two fermions into exactly the same quantum state (same energy level and same spin) then the determinant vanishes, as we would expect by the PEP.
+
+\noindent For interest, the way you calculate the symmetric eigenstate for N non-interacting bosons within a common potential is found by calculating the Slater permanent from the same $n \times N$ matrix, as Eq~\ref{SlaterDeterminant}. The only difference between the permanent and determinant of a matrix is that you don't have to worry about the negative signs in the co-factors when calculating the permanent.
 
 \section{Key Results}
 
+In order for an eigenstate of an operator, which corresponds to an observable, to be physically acceptable it must also be an eigenstate of the particle exchange operator.
 
+\noindent Fermions are particles with half integer spin, they are described by Fermi-Dirac statistics, Eq~\ref{FermiDiracDistributionFunction}. Their overall eigenstate must be anti-symmetric, this is apparent when operated on by the particle exchange operator. This eigenstate can be calculated using the Slater determinant, Eq~\ref{SlaterDeterminant}. Fermions must obey the PEP, which prevents two fermions from occupying the exact same quantum state.
+
+\noindent Bosons are particles with integer spin, they are desribed by Bose-Einstein statistics, Eq~\ref{BoseEinsteinDistributionFunction}. Their overall eigenstate must symmetric, when operated on by the particle exchange operator.
+
+\noindent Changing the order of particle labels should have no measurable difference on the observable values that the operator return, this is exchange degeneracy.
 
 \section{Exam Question?}
 

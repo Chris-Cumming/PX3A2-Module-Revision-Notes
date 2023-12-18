@@ -61,13 +61,14 @@ From the third postulate of quantum mechanics, we know that any state of a parti
 
 \section{Key Results}
 
-The general process for the variational method to always follow is:
+The variational method allows us to find an upper bound for the ground state energy of some system that we know the exact Hamiltonian for, but cannot solve exactly, by guessing a wave function. The general process for the variational method to always follow is:
 
 \begin{itemize}
+    \item Guess the form of a trial wave function, $\psi_T$, which depends on some parameters we can tune.
     \item Ensure that $\psi_T$ is normalised.
     \item Calculate $\braket{\Hat{H}}$ using trial wave function.
-    \item Differentiate $\braket{\Hat{H}}$ with respect to the variational parameter.
-    \item Calculate minimum value of $\braket{\Hat{H}}$ using previously found value for variational parameter.
+    \item Minimise $\braket{\Hat{H}}$ with respect to any variational parameters.
+    \item Calculate the minimum value of $\braket{\Hat{H}}$ using previously found value for variational parameter.
 \end{itemize}
 
 \noindent In an exam you will never have to guess a wave function yourself, it will always be given to you and there will always only be one parameter to minimise $\braket{\Hat{H}}$ with respect to. Note if we have 2 trial wave functions, and one of them gives a lower value for $\braket{\Hat{H}}$ than the other, then this trial wave function gives a better estimate for the actual ground state energy of the system.
