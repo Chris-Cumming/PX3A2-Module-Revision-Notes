@@ -8,7 +8,7 @@ In the previous section we applied a perturbation to a known system and found th
 
 \section{Derivation}
 
-As with the non-degenerate case, as far as I'm aware this derivation is not examinable so feel free to skip it. Also this is not the most rigorous of derivations either.
+As with the non-degenerate case, as far as I'm aware, this derivation is not examinable so feel free to skip it. Also this is not the most rigorous of derivations either.
 
 \noindent Consider $E^0_n$, and eigenvalue of the unperturbed Hamiltonian $\Hat{H_0}$. Suppose it is s-fold degenerate, so there are s linearly independent eigenstates which have energy $E^0_n$. We shall label these as $\ket{u^0_{n \alpha}}$ and assume that they are orthornormal to each other:
 
@@ -60,7 +60,97 @@ As with the non-degenerate case, as far as I'm aware this derivation is not exam
 
 \section{Example: 2D SHO}
 
+In 1D the SHO is not a degenerate system, it has unique eigenstates for each of the energy levels given by $E_n = (n + \frac{1}{2})\hbar \omega$. However when we consider a 2D SHO, we are allowing oscillations in two directions, so the unperturbed Hamiltonian is just the sum of the 1D Hamiltonian in two directions:
+
+\begin{equation}
+    \Hat{H_0} = \frac{p^2_x}{2m} + \frac{p^2_y}{2m} + \frac{1}{2} m \omega^2 (x^2 + y^2),
+    \label{UnperturbedHamiltonianSHO}
+\end{equation}
+
+\noindent where $p_x$, $p_y$ are the momentum in the x and y directions respectively, and x, y are the coordinates. The unperturbed energy of this 2D system will now have contributions from the springs in both the x and y directions:
+
+\begin{equation}
+    E^0_N = N \hbar \omega = (n_x + n_y + 1) \hbar \omega = [(n_x + \frac{1}{2}) + (n_y + \frac{1}{2})] \hbar \omega,
+    \label{UnperturbedEnergy2DSHO}
+\end{equation}
+
+\noindent with eigenstates given by:
+
+\begin{equation}
+    u^0_N(x, y) = u^0_{n_x}(x)u^0_{n_y}(y),
+    \label{UnperturbedEigenstates2DSHO}
+\end{equation}
+
+\noindent where $u^0_{n_x}(x)$ are just the eigenstates for the 1D system.
+
+\noindent Now when N = 1, we can see there is no degeneracy present as in this case the only possibility is $n_x = n_y = 0$. So for $E^0_1$ the only possible eigenstate is $u^0_0 (x, y) = u^0_0(x)u^0_0(y)$. However if we consider the first excited state N = 2, there is a 2-fold degeneracy, so s = 2. If N = 2, then there are 2 sets of possible values of $n_x, n_y$. These are $n_x = 0$ and $n_y = 1$, or $n_x = 1$ and $n_y = 0$. Both of these sets would give $E^0_2 = 2\hbar \omega$. In the first set the spring in the x direction isn't oscillating it only has its zero point energy, whilst in the y direction the spring is oscillating in its first excited level.
+
+\noindent This means our degenerate eigenstates, using Eq~\ref{UnperturbedEigenstates2DSHO}, are given by:
+
+\begin{eqnarray}
+    u^0_{21}(x, y) = u^0_1(x)u^0_0(y) \\
+    u^0_{22}(x, y) = u^0_0(x)u^0_1(y),
+    \label{DegenerateWavefunctions2DSHO}
+\end{eqnarray}
+
+\noindent where the first equation corresponds to $n_x = 1$, $n_y = 0$ and the second corresponds to $n_x = 0$, $n_y = 1$. These equations correspond to our $\ket{u^0_{n\alpha}}$, defined by Eq~\ref{DegenerateEigenfunctions}, where $N \equiv n = 2$ as we are in the first excited state of the system, and since there are 2 degenerate eigenstates $\alpha = 1, 2$. Now using Eq~\ref{LinearCombinationDegenerateStates}, we define the correct linear combination of degenerate eigenstates that allows us to perform PT:
+
+\begin{eqnarray}
+    \ket{\phi^0_{21}} = c_{11}\ket{u^0_{21}} + c_{12}\ket{u^0_{22}} \label{LinearCombinationDegenerateStates2DSHO_1} \\
+    \ket{\phi^0_{22}} = c_{21}\ket{u^0_{21}} + c_{22}\ket{u^0_{22}},
+    \label{LinearCombinationDegenerateStates2DSHO_2}
+\end{eqnarray}
+
+\noindent these are our $\ket{\phi^0_{ni}}$ and $c_{i\alpha}$.
+
+\noindent Now in order to find the first order corrections and correct linear combination, we need to solve Eq~\ref{DegenerateMatrixEquation}. The matrix will be a $2 \times 2$ matrix since this a 2-fold degeneracy. The elements of the matrix are determined as:
+
+\begin{eqnarray}
+    V_{11} = \braket{u^0_{21} | \Hat{V} | u^0_{21}}  \\
+    V_{12} = \braket{u^0_{21} | \Hat{V} | u^0_{22}} \\
+    V_{21} = \braket{u^0_{22} | \Hat{V} | u^0_{21}} \\
+    V_{22} = \braket{u^0_{22} | \Hat{V} | u^0_{22}},
+    \label{MatrixElements2DSHO}
+\end{eqnarray}
+
+\noindent where $V_{ij}$ is the matrix element of the $i^{th}$ row and the $j^{th}$ column. So the perturbation matrix looks like:
+\begin{equation}
+    \Hat{V} \doteq \begin{pmatrix} V_{11} & V_{12} \\ V_{21} & V_{22} \end{pmatrix}
+    \label{PerturbationMatrix2DSHO}
+\end{equation}
+
+\noindent Now assuming a perturbation of $\Hat{V}$ = $\lambda m  \omega^2 xy$, and standard forms for the unperturbed eigenstates of the 1D SHO, we find by evaluating the matrix elements, that Eq~\ref{PerturbationMatrix2DSHO} is given by:
+
+\begin{equation}
+    \Hat{V} \doteq \begin{pmatrix} 0 & \frac{\lambda \hbar \omega}{2} \\ \frac{\lambda \hbar \omega}{2} & 0 \end{pmatrix}
+\end{equation}
+
+\noindent The first order corrections to the first excited energy level are then found from the eigenvalues of the above matrix to be $E^1_2 = \pm \frac{\lambda \hbar \omega}{2}$. Then our coefficients in Eq~\ref{LinearCombinationDegenerateStates2DSHO_1} and Eq~\ref{LinearCombinationDegenerateStates2DSHO_2} are determined from:
+
+\begin{equation}
+    \begin{pmatrix} 0 & \frac{\lambda \hbar \omega}{2} \\ \frac{\lambda \hbar \omega}{2} & 0 \end{pmatrix} \begin{pmatrix} c_{11} \\ c_{12} \end{pmatrix} = + \frac{\lambda \hbar \omega}{2} \begin{pmatrix} c_{11} \\ c_{12} \end{pmatrix}
+\end{equation}
+
+\noindent for Eq~\ref{LinearCombinationDegenerateStates2DSHO_1}, and:
+
+\begin{equation}
+    \begin{pmatrix} 0 & \frac{\lambda \hbar \omega}{2} \\ \frac{\lambda \hbar \omega}{2} & 0 \end{pmatrix} \begin{pmatrix} c_{21} \\ c_{22} \end{pmatrix} = - \frac{\lambda \hbar \omega}{2} \begin{pmatrix} c_{21} \\ c_{22} \end{pmatrix}
+\end{equation}
+
+\noindent for Eq~\ref{LinearCombinationDegenerateStates2DSHO_2}.
+
 \section{Key Results}
+
+If you get asked to find the first order energy corrections for a degenerate system and/or the correct eigenstates that allow PT to work, then the process to follow is:
+
+\begin{itemize}
+    \item Check what the degeneracy of the system is (s).
+    \item Find the forms of the s degenerate eigenstates.
+    \item Form s linear combinations from the s degenerate eigenstates.
+    \item Form the $s \times s$ perturbation matrix using the perturbation given and the degenerate eigenstates. Since the matrix is symmetric you won't have to calculate all the off diagonal elements individually.
+    \item Calculate the eigenvalues of the matrix, these give you the first order energy corrections of the degenerate energy level you're considering. Note there will be s of them, but some may be repeated.
+    \item Then form an eigenvalue equation, with the perturbation matrix, the linear combinations of degenerate eigenstates and the eigenvalues to find the correct linear combinations.
+\end{itemize}
 
 \section{Exam Question?}
 
