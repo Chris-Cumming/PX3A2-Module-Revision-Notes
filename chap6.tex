@@ -1,4 +1,76 @@
 \chapter{Multi electron atoms and the periodic table}
 \label{chapt6}
 
+\section{Multi-electron atoms}
 
+So far during this module, the focus has been on systems containing one electron. However we will now briefly look at some approximations of multi-electron systems. The first is essentially the hydrogenic atom, where each electron is treated as only seeing the coulomb field due to the nucleus of charge Ze it orbits, in which case the Hamiltonian of the system looks like:
+
+\begin{equation}
+    \Hat{H}(\underline{r}_1, \underline{r}_2, ..., \underline{r}_Z) = \frac{-\hbar^2}{2m} \sum^Z_{i=1} \nabla^2_i + \sum^Z_{i=1} \frac{-Ze^2}{4 \pi \epsilon_0 r_i},
+    \label{HydrogenAtomApproximationHamiltonian}
+\end{equation}
+
+\noindent where the eigenstates and energy levels are just those of a hydrogen like atom, i.e they only depend on the principal quantum number, n:
+
+\begin{equation}
+    E_n = \frac{-Z^2 \times 13.6eV}{n^2}
+    \label{HydrogenicAtomEnergyLevels}
+\end{equation}
+
+\noindent Note each energy level is 2$n^2$ degenerate, where the factor of 2 arises to account for spin. Each n level is known as an energy level shell.
+
+\noindent This approximation can be improved drastically by taking into account the effect electrons have on one another. This is done by assuming the electrons move in a field due to the nucleus that has been screened by the presence of the other Z - 1 electrons, in which case the Hamiltonian takes the form:
+
+\begin{equation}
+    \Hat{H}(\underline{r}_1, \underline{r}_2, ..., \underline{r}_Z) = \frac{-\hbar^2}{2m} \sum^Z_{i=1} \nabla^2_i + \sum^Z_{i=1} -V_{eff}(r_i),
+    \label{ScreenedPotentialApproximationHamiltonian}
+\end{equation}
+
+\noindent where:
+
+\begin{equation}
+    V_{eff}(r_i) = \frac{-Z_{eff}e^2}{4 \pi \epsilon_0 r_i} + \frac{\hbar^2 l(l + 1)}{2mr^2_i},
+    \label{ScreenedPotential}
+\end{equation}
+
+\noindent where $Z_{eff}$ is the effective charge on the nucleus that the electron sees due to the other electrons shielding the nucleus. This means that in this approximation, the energy levels of electrons depend on the value of n and l and each shell has a degeneracy of (2s+1)(2l+1). The eigenstates of this system are now labelled according to the values n, l, $m_l$ and $m_s$. 
+
+\noindent The second term is known as the potential barrier and accounts for the difference in energy between electrons which reside in the same shell. This is because for each shell there are a number of orbitals that the electrons can occupy, and these orbitals vary in distance from the nucleus. Using this potential barrier term and the energy levels for a hydrogenic atom, Eq~\ref{HydrogenicAtomEnergyLevels}, we can begin to order the atomic orbits of atoms. 
+
+\noindent The ordering of these atomic orbits, according to their energy is: 1s, 2s, 2p, 3s, 3p, [4s, 3d], 4p, [5s, 4d], ..., where they are written in the form (nl), with $l = 0 \equiv s$, $l = 1 \equiv p$, $l = 2 \equiv d$, $l = 3 \equiv f$, etc. Note that the terms in square brackets are of similar energy, as the coulombic attraction and potential barrier compete.
+
+\noindent The most accurate Hamiltonian, with no approximations involved, also includes the interactions between the electrons directly and not just through the coulombic field attraction of the nucleus. It is given by:
+
+\begin{equation}
+    \Hat{H}(\underline{r}_1, \underline{r}_2, ..., \underline{r}_Z) = \frac{-\hbar^2}{2m} \sum^Z_{i=1} \nabla^2_i + \sum^Z_{i=1} -V_{eff}(r_i) + \sum_{i, j = 1}^{i \neq j} \frac{e^2}{4 \pi \epsilon_0 | \underline{r}_i - \underline{r}_j|} 
+    \label{FullHamiltonian}
+\end{equation}
+
+\noindent The periodic table is formed by considering the energies of the atomic orbitals and by obeying the PEP when filling up these orbitals. This orders elements into periods and groups of the periodic table, which determine which elements have similar physical and chemical properties respectively. 
+
+\section{Spectroscopic Notation}
+
+Instead of writing orbital states as (nl), we can describe them by assigning total angular momentum quantum numbers. This means we describe states using multiplets which take the form $^{2S + 1}L$, where L is the total orbital angular momentum of the (nl) orbital, S is the total spin momentum of the (nl) orbital and 2S + 1 is known as the multiplicity. As before with the single particle state orbital angular momentum quantum number l, instead of writing L = 0, 1, 2, 3, 4, 5, 6, 7 ..., we write L = S, P, D, F, G, H, I, K ... instead.
+
+\noindent We may also combine the values L and S to give J, the total angular momentum of the system. This is used in the spectroscopic term which we write as $^{2S + 1}L_J$ which describes the multiplet of the atom.
+
+\section{Hund's Rules}
+
+Hund's rules are a way of determining the correct spectroscopic term for the ground state of an atom. They generally only work for the lighter elements however. The process is:
+
+\begin{itemize}
+    \item First we maximise S = $\sum_i m_{si}$
+    \item Next we maximise L = $\sum_i m_{li}$
+    \item For a shell that is less than half full $J = |L - S|$. However if the shell is more than half full $J = |L + S|$ and if the shell is exactly half full then L = 0, so J = S
+\end{itemize}
+
+\noindent The physical reasoning behind the first rule is that there is large coulombic repulsion between electrons that occupy the same space but with opposite spins. For the second rule, the reasoning is similar in that repulsion between electrons is minimised for larger L as the electrons spend more time further apart.
+
+
+
+\section{Key Results}
+
+You should make sure that you know what each of the quantum numbers n, l, $m_l$ and $m_s$ mean in regards to atomic orbitals, as well as be able to calculate L and S for multi-electron atoms. However the most important thing to take from this section is how to find the ground state multiplet for the electronic structure of some atom, using Hund's rules, and then being able to write it in spectroscopic notation. You will never have to find an excited state multiplet it will always be the ground state multiplet.
+
+
+\section{Exam Question?}
