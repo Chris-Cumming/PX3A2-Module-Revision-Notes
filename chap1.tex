@@ -3,7 +3,7 @@
 
 \section{Introduction}
 
-The vast majority of systems we consider in quantum mechanics don't have exact solutions and so need to be approximated. In fact there are only 2 known systems which have been solved exactly. These are the simple harmonic oscillator (SHO) and the potential well in 1D, 2D and 3D. However if the system we want to find the eigenvalues and eigenstates for is similar to one of these, then we can use perturbation theory (PT) as a way to approximate these eigenvalues and eigenstates. This involves taking a system which has been solved exactly and applying a small correction to make it resemble the system we wish to solve, and then consider perturbative expansions of the values that change.
+The vast majority of systems we consider in quantum mechanics don't have exact solutions and so need to be approximated. In fact there are only 2 known systems which have been solved exactly. These are the simple harmonic oscillator (SHO) and the potential well in 3D. However if the system we want to find the eigenvalues and eigenstates for is similar to one of these, then we can use perturbation theory (PT) as a way to approximate these eigenvalues and eigenstates. This involves taking a system which has been solved exactly and applying a small correction to make it resemble the system we wish to solve, and then consider perturbative expansions of the values that change.
 
 \section{Derivation}
 
@@ -12,11 +12,11 @@ The vast majority of systems we consider in quantum mechanics don't have exact s
 \noindent We wish to find the corrections to our energy eigenvalues and corresponding eigenstates as a result of the perturbation we have applied. We begin by writing the Hamiltonian for our new perturbed system as:
 
 \begin{equation}
-    \Hat{H} = \Hat{H_0} + \beta \Hat{V},
+    \Hat{H} = \Hat{H}_0 + \beta \Hat{V},
     \label{ModifidedHamiltonianPT}
 \end{equation}
 
-\noindent where $\Hat{H_0}$ is the Hamiltonian of our unperturbed solved system (like the SHO), $\Hat{V}$ is the perturbation we apply and $\beta$ is just a real number that controls the size of $\Hat{V}$. Here we assume that $\Hat{H_0}$ and $\Hat{V}$ are both hermitian, so that $\Hat{H}$ is also hermitian. We further assume that the eigenvalues of the unperturbed system are not degenerate, i.e there aren't any eigenstates with the same eigenvalue or an eigenstate with multiple eigenvalues. Note $0\leq \beta < 1$ otherwise the expansions will not converge.
+\noindent where $\Hat{H}_0$ is the Hamiltonian of our unperturbed solved system (like the SHO), $\Hat{V}$ is the perturbation we apply and $\beta$ is just a real number that controls the size of $\Hat{V}$. Here we assume that $\Hat{H}_0$ and $\Hat{V}$ are both hermitian, so that $\Hat{H}$ is also hermitian. We further assume that the eigenvalues of the unperturbed system are not degenerate, i.e there aren't any eigenstates with the same eigenvalue or an eigenstate with multiple eigenvalues. Note $\beta$ is constrained by $0\leq \beta < 1$ otherwise the expansions will not converge.
 
 \noindent We then consider our normal Hamiltonian eigenvalue equation:
 
@@ -63,7 +63,7 @@ It might help to think of the perturbative expansions, Eq~\ref{EigenvaluePT} and
 \noindent we then expand this and equate powers of $\beta$ on the left and right hand side. So for zero order terms, i.e the terms which don't contain $\beta$, we find:
 
 \begin{equation}
-    \Hat{H_0} \ket{\phi^0_n} = E^0_n \ket{\phi^0_n},
+    \Hat{H}_0 \ket{\phi^0_n} = E^0_n \ket{\phi^0_n},
     \label{ZeroOrderTerms}
 \end{equation}
 
@@ -88,7 +88,7 @@ It might help to think of the perturbative expansions, Eq~\ref{EigenvaluePT} and
     \label{FirstOrderMultiplied}
 \end{equation}
 
-\noindent where we can remove the $E^0_n$ and $E^1_n$ terms from within the bra-ket notation as they are just numbers.
+\noindent where we can remove the $E^0_n$ and $E^1_n$ terms from within the bra-ket notation as they are just scalars.
 
 \noindent This then simplifies to give us:
 
@@ -97,7 +97,7 @@ It might help to think of the perturbative expansions, Eq~\ref{EigenvaluePT} and
     \label{FirstOrderEnergyCorrection}
 \end{equation}
 
-\noindent thanks to the orthonormality condition, Eq~\ref{UnperturbedEigenstateOrthonormality}, we impose. This means that the first order correction to the $n^{th}$ energy eigenvalue is given by the expectation value of the $n^{th}$ eigenstate with the perturbation we have applied.
+\noindent thanks to the orthonormality condition, Eq~\ref{UnperturbedEigenstateOrthonormality}, we impose. This means that the first order correction to the $n^{th}$ energy eigenvalue is given by the expectation value of the $n^{th}$ energy level unperturbed eigenstates with the perturbation we have applied.
 
 \noindent Now in order to find the first order corrections to the eigenstates, we assume it takes the form:
 

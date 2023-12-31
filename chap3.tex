@@ -7,7 +7,7 @@ The variational, or Rayleigh-Ritz, method is another approximation method we can
 
 \section{Derivation}
 
-From the third postulate of quantum mechanics, we know that any state of a particular system, $\psi$, can be expressed as a linear combination of the eigenstates of an operator, such as the Hamiltonian, so long as they form a complete set:
+From the third postulate of quantum mechanics, we know that any state of a particular system, $\ket{\psi}$, can be expressed as a linear combination of the eigenstates of an operator, such as the Hamiltonian, so long as they form a complete set:
 
 \begin{equation}
     \ket{\psi} = \sum_n = c_n \ket{\phi_n},
@@ -21,14 +21,14 @@ From the third postulate of quantum mechanics, we know that any state of a parti
     \label{ExpectationValue}
 \end{equation}
 
-\noindent where we assume $\psi$ is normalised. Then inserting Eq~\ref{ExpansionWavefunction} into Eq~\ref{ExpectationValue}, we find:
+\noindent where we assume $\ket{\psi}$ is normalised. Then inserting Eq~\ref{ExpansionWavefunction} into Eq~\ref{ExpectationValue}, we find:
 
 \begin{equation}
     \braket{\Hat{H}} = \sum_n = |c_n|^2 E_n.
     \label{ExpectationValueExpanded}
 \end{equation}
 
-\noindent This means if we take $\psi$ to be our trial wave function that we guess, which I'll label as $\psi_T$, then $\braket{\Hat{H}} \geq E_1$ which is the ground state of the system. This is because we assume that the energy eigenvalues, $E_n$, of $\phi_n$ are ordered such that $E_1 < E_2 < E_3 < E_4$. So unless we accidentally pick the exact ground eigenstate of the Hamiltonian then our trial wave function will be a combination of excited eigenstates of the Hamiltonian, as we predict from Eq~\ref{ExpansionWavefunction}. So our expectation value of the Hamiltonian will contain the sum of the corresponding energy eigenvalues for these eigenstates. For example if we let our trial wave function take the form:
+\noindent This means if we take $\ket{\psi}$ to be our trial wave function that we guess, which I'll label as $\ket{\psi_T}$, then $\braket{\Hat{H}} \geq E_1$ which is the ground state of the system. This is because we assume that the energy eigenvalues, $E_n$, of $\ket{\phi_n}$ are ordered such that $E_1 < E_2 < E_3 < E_4$. So unless we accidentally pick the exact ground eigenstate of the Hamiltonian then our trial wave function will be a combination of excited eigenstates of the Hamiltonian, as we predict from Eq~\ref{ExpansionWavefunction}. So our expectation value of the Hamiltonian will contain the sum of the corresponding energy eigenvalues for these eigenstates. For example if we let our trial wave function take the form:
 
 \begin{equation}
     \ket{\psi_T} = c_1 \ket{\phi_1} + c_5 \ket{\phi_5} + c_{23} \ket{\phi_{22}},
@@ -56,7 +56,7 @@ From the third postulate of quantum mechanics, we know that any state of a parti
     \label{Example2Value}
 \end{equation}
 
-\noindent We choose a form for $\psi_T$ which is a function of some parameters that we can tune, $\alpha_i$, i.e $\psi_T = \psi_T (\alpha_1, \alpha_2, \alpha_3, ...)$. We then calculate the expectation value of the Hamiltonian with $\psi_T$ using Eq~\ref{ExpectationValue}. The expectation value is then minimised with respect to $\alpha_1, \alpha_2, \alpha_3, ...$ with the final result representing the best estimate of the ground state energy of the system using $\psi_T$ and an upper bound for the actual ground state energy of the system.
+\noindent We choose a form for $\ket{\psi_T}$ which is a function of some parameters, $\alpha_i$, that we can tune, i.e $\psi_T = \psi_T (\alpha_1, \alpha_2, \alpha_3, ...)$. We then calculate the expectation value of the Hamiltonian with $\ket{\psi_T}$ using Eq~\ref{ExpectationValue}. The expectation value is then minimised with respect to $\alpha_1, \alpha_2, \alpha_3, ...$ with the final result representing the best estimate of the ground state energy of the system using $\ket{\psi_T}$ and an upper bound for the actual ground state energy of the system.
 
 
 \section{Key Results}
@@ -64,9 +64,9 @@ From the third postulate of quantum mechanics, we know that any state of a parti
 The variational method allows us to find an upper bound for the ground state energy of some system that we know the exact Hamiltonian for, but cannot solve exactly, by guessing a wave function. The general process for the variational method to always follow is:
 
 \begin{itemize}
-    \item Guess the form of a trial wave function, $\psi_T$, which depends on some parameters we can tune.
-    \item Ensure that $\psi_T$ is normalised.
-    \item Calculate $\braket{\Hat{H}}$ using trial wave function.
+    \item Guess the form of a trial wave function, $\ket{\psi_T}$, which depends on some parameters we can tune.
+    \item Ensure that $\ket{\psi_T}$ is normalised.
+    \item Calculate $\braket{\Hat{H}}$ using the trial wave function.
     \item Minimise $\braket{\Hat{H}}$ with respect to any variational parameters.
     \item Calculate the minimum value of $\braket{\Hat{H}}$ using previously found value for variational parameter.
 \end{itemize}

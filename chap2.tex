@@ -10,7 +10,7 @@ In the previous section we applied a perturbation to a known system and found th
 
 As with the non-degenerate case, as far as I'm aware, this derivation is not examinable so feel free to skip it. Also this is not the most rigorous of derivations either.
 
-\noindent Consider $E^0_n$, and eigenvalue of the unperturbed Hamiltonian $\Hat{H_0}$. Suppose it is s-fold degenerate, so there are s linearly independent eigenstates which have energy $E^0_n$. We shall label these as $\ket{u^0_{n \alpha}}$ and assume that they are orthornormal to each other:
+\noindent Consider $E^0_n$, an eigenvalue of the unperturbed Hamiltonian $\Hat{H}_0$. Suppose it is s-fold degenerate, so there are s linearly independent eigenstates which have energy $E^0_n$. We shall label these as $\ket{u^0_{n \alpha}}$ and assume that they are orthornormal to each other:
 
 \begin{equation}
         \braket{u^0_{n \alpha} | u^0_{n \beta}} = \delta_{\alpha \beta},
@@ -19,7 +19,7 @@ As with the non-degenerate case, as far as I'm aware, this derivation is not exa
 
 \noindent where $\alpha, \beta$ = 1, 2, 3, ..., s are labels for the s degenerate eigenstates of the $n^{th}$ energy level.
 
-\noindent Since any linear combination of $\ket{u^0_{n \alpha}}$ is an eigenstate of $\Hat{H_0}$ then the unperturbed states, we used previously in non-degenerate PT, are not uniquely defined and so can't be used for PT. Therefore we need to find the correct normalised states which can be used in PT. Note there will be s of these states. We write these states in the following form:
+\noindent Since any linear combination of $\ket{u^0_{n \alpha}}$ is an eigenstate of $\Hat{H_0}$, then the unperturbed states we used previously in non-degenerate PT are not uniquely defined and so can't be used for PT. Therefore we need to find the correct normalised states which can be used in PT. Note there will be s of these states. We write these states in the following form:
 
 \begin{equation}
     \ket{\phi^0_{ni}} = \sum^s_{\alpha = 1} c_{i\alpha} \ket{u^0_{n \alpha}}
@@ -42,7 +42,7 @@ As with the non-degenerate case, as far as I'm aware, this derivation is not exa
     \label{FirstOrderEnergyCorrectionsDegenerate}
 \end{equation}
 
-\noindent Analogous to before, the first order correction for the $i^{th}$ degenerate state of the $n^{th}$ energy level is given by the expectation value of the $i^{th}$ eigenstate with the perturbation.
+\noindent Analogous to before, the first order correction for the $i^{th}$ degenerate state of the $n^{th}$ energy level is given by the expectation value of the $i^{th}$ degenerate eigenstate with the perturbation.
 
 \noindent However you wouldn't normally used Eq~\ref{FirstOrderEnergyCorrectionsDegenerate}, since it doesn't tell you the correct linear combination of $\ket{u^0_{n \alpha}}$ which allows PT to work. There is an easier way to find the first order corrections for each of the degenerate eigenstates as well as the coefficients, $c_{i \alpha}$. You'll have to forgive me for not writing out the derivation for this as its just disgusting, but results in solving the eigenvalue equation:
 
@@ -51,11 +51,11 @@ As with the non-degenerate case, as far as I'm aware, this derivation is not exa
     \label{DegenerateMatrixEquation}
 \end{equation}
 
-\noindent This is most nicely represented by a matrix equation, where $\sum^s_{\alpha = 1} (\braket{u^0_{n\beta} | \Hat{V} | u^0_{n\alpha}}$ is the matrix, the elements of which are determined by the expectation value of the degenerate eigenstates with the perturbation. This then operates on the vector with components $c_{i \alpha}$, and then returns the same vector multiplied by the eigenvalue of $E^1_{ni}$.
+\noindent This is most nicely represented by a matrix equation, where $\sum^s_{\alpha = 1} (\braket{u^0_{n\beta} | \Hat{V} | u^0_{n\alpha}}$ is the matrix, the elements of which are determined by the expectation value of the degenerate eigenstates with the perturbation. This then operates on the eigenstate with components $c_{i \alpha}$, and then returns the same eigenstate multiplied by the eigenvalue of $E^1_{ni}$.
 
-\noindent So in order to find the first order corrections to the degenerate energy levels and their corresponding wave functions you simply solve Eq~\ref{DegenerateMatrixEquation} like any other eigenvalue equation. The eigenvalues of the matrix determine the first order corrections, $E^1_{ni}$, which can are then re-inserted back into the equation to find $c_{i \alpha}$. This then means you can determine $\ket{\phi_{ni}}$ for each $E^1_{ni}$, using Eq~\ref{LinearCombinationDegenerateStates}.
+\noindent So in order to find the first order corrections to the degenerate energy levels and their corresponding wave functions you simply solve Eq~\ref{DegenerateMatrixEquation} like any other eigenvalue equation. The eigenvalues of the matrix determine the first order corrections, $E^1_{ni}$, which are then re-inserted back into the equation to find $c_{i \alpha}$. This then means you can determine $\ket{\phi_{ni}}$ for each $E^1_{ni}$, using Eq~\ref{LinearCombinationDegenerateStates}.
 
-\noindent Don't worry if none of this is making any sense it will make a lot more sense once you see an example and there aren't tons of greek letters and summation symbols all over the place.
+\noindent Don't worry if none of this is making any sense it will hopefully make a lot more sense once you see an example and there aren't tons of greek letters and summation symbols all over the place.
 
 
 \section{Example: 2D SHO}
@@ -67,7 +67,7 @@ In 1D the SHO is not a degenerate system, it has unique eigenstates for each of 
     \label{UnperturbedHamiltonianSHO}
 \end{equation}
 
-\noindent where $p_x$, $p_y$ are the momentum in the x and y directions respectively, and x, y are the coordinates. The unperturbed energy of this 2D system will now have contributions from the springs in both the x and y directions:
+\noindent where $p_x$, $p_y$ are the momentum in the $x$ and $y$ directions respectively, and $x$, $y$ the canonical coordinates. The unperturbed energy of this 2D system will now have contributions from the springs in both the $x$ and $y$ directions:
 
 \begin{equation}
     E^0_N = N \hbar \omega = (n_x + n_y + 1) \hbar \omega = [(n_x + \frac{1}{2}) + (n_y + \frac{1}{2})] \hbar \omega,
@@ -83,7 +83,7 @@ In 1D the SHO is not a degenerate system, it has unique eigenstates for each of 
 
 \noindent where $u^0_{n_x}(x)$ are just the eigenstates for the 1D system.
 
-\noindent Now when N = 1, we can see there is no degeneracy present as in this case the only possibility is $n_x = n_y = 0$. So for $E^0_1$ the only possible eigenstate is $u^0_0 (x, y) = u^0_0(x)u^0_0(y)$. However if we consider the first excited state N = 2, there is a 2-fold degeneracy, so s = 2. If N = 2, then there are 2 sets of possible values of $n_x, n_y$. These are $n_x = 0$ and $n_y = 1$, or $n_x = 1$ and $n_y = 0$. Both of these sets would give $E^0_2 = 2\hbar \omega$. In the first set the spring in the x direction isn't oscillating it only has its zero point energy, whilst in the y direction the spring is oscillating in its first excited level.
+\noindent Now when $N$ = 1, we can see there is no degeneracy present as in this case the only possibility is $n_x = n_y = 0$. So for $E^0_1$ the only possible eigenstate is $u^0_0 (x, y) = u^0_0(x)u^0_0(y)$. However if we consider the first excited state $N$ = 2, there is a 2-fold degeneracy, so $s$ = 2. If $N$ = 2, then there are 2 sets of possible values of $n_x, n_y$. These are $n_x = 0$ and $n_y = 1$, or $n_x = 1$ and $n_y = 0$. Both of these sets would give $E^0_2 = 2\hbar \omega$. In the first set the spring in the $x$ direction isn't oscillating it only has its zero point energy, whilst in the $y$ direction the spring is oscillating in its first excited state.
 
 \noindent This means our degenerate eigenstates, using Eq~\ref{UnperturbedEigenstates2DSHO}, are given by:
 
@@ -143,15 +143,15 @@ In 1D the SHO is not a degenerate system, it has unique eigenstates for each of 
 Degenerate PT allows us to find approximate values for the energy eigenvalues and eigenstates of a degenerate system which resembles a system we can solve exactly. If you get asked to find the first order energy corrections for a degenerate system and/or the correct eigenstates that allow PT to work, then the process to follow is:
 
 \begin{itemize}
-    \item Check what the degeneracy of the system is (s).
-    \item Find the forms of the s degenerate eigenstates.
-    \item Form s linear combinations from the s degenerate eigenstates.
-    \item Form the $s \times s$ perturbation matrix using the perturbation given and the degenerate eigenstates. Since the matrix is symmetric you won't have to calculate all the off diagonal elements individually.
-    \item Calculate the eigenvalues of the matrix, these give you the first order energy corrections of the degenerate energy level you're considering. Note there will be s of them, but some may be repeated.
+    \item Check what the degeneracy of the system is ($s$).
+    \item Find the forms of the $s$ degenerate eigenstates, Eq~\ref{DegenerateEigenfunctions}.
+    \item Form $s$ linear combinations from the $s$ degenerate eigenstates, Eq~\ref{LinearCombinationDegenerateStates}.
+    \item Form the $s \times s$ perturbation matrix using the perturbation given and the degenerate eigenstates. Since the matrix is symmetric you won't have to calculate all the off diagonal elements individually, Eq~\ref{DegenerateMatrixEquation}.
+    \item Calculate the eigenvalues of the matrix, these give you the first order energy corrections of the degenerate energy level you're considering. Note there will be $s$ of them, but some may be repeated.
     \item Then form an eigenvalue equation, with the perturbation matrix, the linear combinations of degenerate eigenstates and the eigenvalues to find the correct linear combinations.
 \end{itemize}
 
-\noindent Note the method outlined in this section is a brute force method. There is a more 'elegant' method which involves symmetry arguments, that Martin goes through in Appendix B of chapter 9 of his notes. I'll briefly outline this method in Section \ref{chapt4}.
+\noindent Note the method outlined in this section is a brute force method. There is a more 'elegant' method, which involves symmetry arguments that Martin goes through in Appendix B of chapter 9 of his notes. I'll briefly outline this method in Section \ref{chapt4}.
 
 \section{Exam Question?}
 

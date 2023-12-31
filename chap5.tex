@@ -6,10 +6,10 @@
 
 It is impossible to follow and identify one particular particle when dealing with a quantum system of identical particles. This is because any measurement we wish to make of the system will disturb it and all the particles are indistinguishable from one another.
 
-\noindent The wave function, $\psi(\underline{r}_1, \underline{r}_2, ..., \underline{r}_k, ..., \underline{r}_N, t)$, is for a system which contains N indistinguishable particles, where $\underline{r}_k$ is the position vector for the $k^{th}$ particle. This has the same normalisation condition as for a single particle state:
+\noindent The wave function, $\ket{\psi(\underline{r}_1, \underline{r}_2, ..., \underline{r}_k, ..., \underline{r}_N, t)}$, is for a system which contains N indistinguishable particles, where $\underline{r}_k$ is the position vector for the $k^{th}$ particle. This has the same normalisation condition as for a single particle state:
 
 \begin{equation}
-    \braket{\psi | \psi} = 1 = \int | \psi(\underline{r}_1, \underline{r}_2, ..., \underline{r}_k, ..., \underline{r}_N, t) |^2 d^3\underline{r}_1 d^3\underline{r}_2 ... d^3\underline{r}_k ... d^3\underline{r}_N
+    \braket{\psi | \psi} = 1 = \int | \psi(\underline{r}_1, \underline{r}_2, ..., \underline{r}_k, ..., \underline{r}_N, t) |^2 d^3\underline{r}_1 d^3\underline{r}_2 ... d^3\underline{r}_k ... d^3\underline{r}_N.
     \label{ManyParticleNormalisation}
 \end{equation}
 
@@ -18,7 +18,7 @@ It is impossible to follow and identify one particular particle when dealing wit
 \noindent Operators acting on multi-particle eigenstates must be symmetric under the permutation of particle labels, due to this indistinguishability. An example of this is the Hamiltonian for the two electrons orbiting a Helium nucleus:
 
 \begin{equation}
-    \Hat{H}(1, 2) = \sum_{i=1}^2 (\frac{-\hbar^2}{2m}\nabla^2_i - \frac{2e^2}{4 \pi \epsilon_0 r_i}) + \frac{e^2}{4 \pi \epsilon_0 r_{12}}
+    \Hat{H}(1, 2) = \sum_{i=1}^2 (-\frac{\hbar^2}{2m}\nabla^2_i - \frac{2e^2}{4 \pi \epsilon_0 r_i}) + \frac{e^2}{4 \pi \epsilon_0 r_{12}}
     \label{HeliumAtomHamiltonian}
 \end{equation}
 
@@ -47,7 +47,7 @@ We can define an operator, $\Hat{P}_{ij}$ that exchanges the $i^{th}$ and $j^{th
     \label{ExchangeOperatorCommutator}
 \end{equation}
 
-\noindent which means that $[\Hat{H}(i, j), \Hat{P}_{ij}] = 0$, i.e the exchange operator commutes with the Hamiltonian operator, meaning they share a common set of eignenstates. Also as particles are indistinguishable, $\Hat{P}_{ij}$ must also commute with any operator that corresponds to an observable and so also share a common set of eigenstates.
+\noindent which means that $[\Hat{H}(i, j), \Hat{P}_{ij}] = 0$, i.e the exchange operator commutes with the Hamiltonian operator. Crucially this means they share a common set of eignenstates. Also as particles are indistinguishable, $\Hat{P}_{ij}$ must also commute with any operator that corresponds to an observable and so also share a common set of eigenstates.
 
 \noindent Applying the exchange operator twice on the same state returns us to the original state:
 
@@ -72,14 +72,14 @@ If our eigenstate describes a collection of identical particles with half intege
     \Psi (1, 2) = \frac{1}{\sqrt{2}} (\psi_a(1) \psi_a (2) - \psi_a (2) \psi_a (1)) = 0.
 \end{equation}
 
-\noindent This is the Pauli Exclusion Principle (PEP). It says that any two half integer spin particles cannot occupy the exact same quantum state as each other. These half integer spin particles are known as Fermions, and they obey Fermi-Dirac statistics which is given by the Fermi-Dirac function:
+\noindent This is the Pauli Exclusion Principle (PEP). It says that any two half integer spin particles cannot occupy the exact same quantum state as each other. These half integer spin particles are known as Fermions, and they obey Fermi-Dirac statistics which is given by the Fermi-Dirac distribution:
 
 \begin{equation}
     f(E) = \frac{1}{e^{\beta (E - \mu)} + 1},
     \label{FermiDiracDistributionFunction}
 \end{equation}
 
-\noindent where $f(E)$ gives the average occupation of a quantum state of energy E, $\beta = \frac{1}{k_B T}$ and $\mu$ is the chemical potential of the system.
+\noindent where $f(E)$ gives the average occupation of a quantum state of energy $E$, $\beta = \frac{1}{k_B T}$ and $\mu$ is the chemical potential of the system.
 
 \noindent However if our eigenstate describes a collection of identical particles with integer spin, then it is symmetric:
 
@@ -88,7 +88,7 @@ If our eigenstate describes a collection of identical particles with half intege
     \label{SymmetricEigenfunction}
 \end{equation}
 
-\noindent where upon application of the exchange operator we the an eigenvalue of $+1$. These particles have no such restriction like the PEP. Integer spin particles are known as bosons and obey Bose-Einstein statistics which is described by the Bose-Einstein function:
+\noindent whereupon application of the exchange operator we obtain an eigenvalue of $+1$. These particles have no such restriction like the PEP. Integer spin particles are known as Bosons and obey Bose-Einstein statistics which is described by the Bose-Einstein distribution:
 
 \begin{equation}
     f(E) = \frac{1}{e^{\beta (E - \mu)} - 1},
@@ -97,9 +97,9 @@ If our eigenstate describes a collection of identical particles with half intege
 
 \noindent where the only difference from Eq~\ref{FermiDiracDistributionFunction} is that the sign in front of the 1 has changed.
 
-\noindent Normally eigenstates, at least of simple systems, can be split into a spatial component and a spin component. If we are considering a fermion, then this eigenstate must be anti-symmetric, this can either be achieved with either the spatial or spin components being anti-symmetric. Then when dealing with multiple fermions, say two electrons, this means the spin component may either by a spin singlet (symmetric) or a spin triplet (anti-symmetric).
+\noindent Normally eigenstates, at least of simple systems, can be split into the product of a spatial component and a spin component. For a fermion, which needs an anti-symmetric eigenstate, the spatial and spin components must be of opposite parity. So when dealing with multiple fermions, this means the spin component may either by a spin singlet (symmetric) or a spin triplet (anti-symmetric).
 
-\noindent In order to form an anti-symmetric eigenstate for N non-interacting fermions within a common potential, we calculate the Slater determinant of an $n \times N$ matrix, where n is the number of eigenstates available for the N fermions. The Slater determinant looks something like:
+\noindent In order to form an anti-symmetric eigenstate for $N$ non-interacting fermions within a common potential, we calculate the Slater determinant of an $n \times N$ matrix, where $n$ is the number of eigenstates available for each of the $N$ fermions. The Slater determinant looks something like:
 
 \begin{equation}
     \renewcommand*{\arraystretch}{1.5}
@@ -110,11 +110,11 @@ If our eigenstate describes a collection of identical particles with half intege
 
 \noindent where $\frac{1}{\sqrt{N!}}$ is a normalisation constant and $\phi_{E_n\sigma_n} (N)$, is the eigenstate with energy $E_n$ and spin $\sigma_n$ that the $N^{th}$ fermion occupies. It's important to note that if we interchange two columns, this is equivalent to applying the exchange operator, and the sign of the determinant changes. Also if we attempt to put two fermions into exactly the same quantum state (same energy level and same spin) then the determinant vanishes, as we would expect by the PEP.
 
-\noindent For interest, the way you calculate the symmetric eigenstate for N non-interacting bosons within a common potential is found by calculating the Slater permanent from the same $n \times N$ matrix, as Eq~\ref{SlaterDeterminant}. The only difference between the permanent and determinant of a matrix is that you don't have to worry about the negative signs in the co-factors when calculating the permanent.
+\noindent The way you calculate the symmetric eigenstate for $N$ non-interacting bosons within a common potential is found by calculating the Slater permanent from the same $n \times N$ matrix, as Eq~\ref{SlaterDeterminant}. The only difference between the permanent and determinant of a matrix is that you don't have to worry about the negative signs in the co-factors when calculating the permanent.
 
 \section{Key Results}
 
-In order for an eigenstate of an operator, which corresponds to an observable, to be physically acceptable it must also be an eigenstate of the particle exchange operator.
+In order for an eigenstate of an operator, which corresponds to a physical observable, to be physically acceptable it must also be an eigenstate of the particle exchange operator.
 
 \noindent Fermions are particles with half integer spin, they are described by Fermi-Dirac statistics, Eq~\ref{FermiDiracDistributionFunction}. Their overall eigenstate must be anti-symmetric, this is apparent when operated on by the particle exchange operator. This eigenstate can be calculated using the Slater determinant, Eq~\ref{SlaterDeterminant}. Fermions must obey the PEP, which prevents two fermions from occupying the exact same quantum state.
 

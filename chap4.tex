@@ -3,9 +3,101 @@
 
 \section{Introduction}
 
+This entire section is effectively a massive example of how useful degenerate PT is. Here we apply it to a hydrogenic system to quantify the magnitude of energy splittings when we apply an external magnetic, allow spin-orbit coupling (SOC) or have a combination of both. This is done both using the brute force method, described in Section~\ref{chapt2}, and by figuring out what the correct eigenstates for PT are using symmetry, which I'll explain briefly in a minute.
+
+\noindent Unfortunately the notation isn't great in places here, because in some cases V means the scalar potential of the nucleus and in others it means the potential energy of the electron in the scalar potential of the nucleus. I've tried to make it clear here using $V_c$ meaning the potential energy. There's also some funny business going on with operator symbols.
+
 \section{Derivation}
 
-Need to mention symmetry argument for determining correct eigenstates to use for degenerate PT.
+The Zeeman effect involves an external magnetic field coupling to the magnetic moments of an electron and SOC involves the coupling between these magnetic moments. In general the magnetic moment of a particle due to orbital motion is:
+
+\begin{equation}
+    \underline{\mu}_L = g_L \frac{q}{2m} \underline{L},
+    \label{OrbitalMagneticMoment}
+\end{equation}
+
+\noindent where $g_L$ is the orbital gyromagnetic ration, $q$ is the charge of the particle, $m$ the mass and $\underline{L}$ the orbital angular momentum vector. However all particles also have intrinisc angular momentum (spin), which also gives rise to a magnetic moment:
+
+\begin{equation}
+    \underline{\mu}_S = g_S \frac{q}{2m} \underline{S},
+    \label{SpinMagneticMoment}
+\end{equation}
+
+\noindent where $g_S$ is the spin gyromagnetic ratio and $\underline{S}$ the spin angular momentum vector.
+
+\noindent For an electron $g_L = 1$, $g_S = 2$ and $q = -e$. Note that $g_S$ doesn't exactly equal 2 there are some corrections to this value due to QED, which is also a perturbation theory but in the context of quantum field theory. 
+
+\noindent Now if we are going to apply degenerate PT to a hydrogenic system that experiences the Zeeman effect and SOC, we need to know the forms of the perturbation, $\Hat{V}$, we apply. For the Zeeman effect, the operator is found from the interaction energy between $\underline\mu$ and $\underline{B}$:
+
+\begin{equation}
+    \Hat{V}_{mag} = - \underline{\Hat{\mu}} \cdot \underline{\Hat{B}} = \frac{e}{2m}(\Hat{L}_z + 2\Hat{S}_z) \cdot B,
+    \label{ZeemanEffectPerturbation}
+\end{equation}
+
+\noindent where we assume that $\underline{B} = (0, 0, B)$, i.e we align the magnetic field along the $\Hat{z}$ direction, and $\Hat{L}_z$ and $\Hat{S}_z$ are the normal operators for returning the z component of the orbital and spin angular momentum.
+
+\noindent Unfortunately the operator for the SOC perturbation is a tad more complicated. In the rest frame of the electron, the nucleus is orbiting it. This means the electron "sees" a magnetic field due do the motion of the charged nucleus. It is given by:
+
+\begin{equation}
+    \underline{B} = \frac{-\underline{v} \times \underline{E}(r)}{c^2},
+    \label{MagneticFieldSOC}
+\end{equation}
+
+\noindent where $\underline{v}$ is the relative velocity of the nucleus, $\underline{E}(r)$ is the electric field due to the nucleus and $c$ is the speed of light. Since the electric field of the nucleus is spherically symmetric we may write it as:
+
+\begin{equation}
+    \underline{E}(r) = -\underline{\nabla} V = -\frac{\partial V}{\partial r} \Hat{\underline{r}},
+    \label{SphericalElectricField}
+\end{equation}
+
+\noindent where $V$ is the scalar electric potential of the nucleus. The operator for SOC takes the form:
+
+\begin{equation}
+    \Hat{V}_{SOC} = - \frac{1}{2} \underline{\Hat{\mu}}_s \cdot \underline{\Hat{B}},
+    \label{SOCPerturbation}
+\end{equation}
+
+\noindent where the factor of $\frac{1}{2}$ arises from the Thomas precession which is a relativistic effect. So substituting in Eq~\ref{SpinMagneticMoment} and Eq~\ref{MagneticFieldSOC} into the above equation we find:
+
+\begin{equation}
+    \Hat{V}_{SOC} = \frac{1}{2} \frac{e}{m} \frac{\underline{\Hat{S}} \cdot (\underline{v} \times \underline{r})}{c^2} \frac{1}{r} \frac{\partial V}{\partial r},
+\end{equation}
+
+\noindent where we have used that the radial unit vector, $\underline{\Hat{r}} = \frac{\underline{r}}{r}$. Then using the relations $\underline{p} = m \underline{v}$, $\underline{\Hat{L}} = \underline{\Hat{r}} \times \underline{p} = - \underline{p} \times \underline{\Hat{r}}$ and $\underline{\Hat{S}} \cdot \underline{\Hat{L}} = \underline{\Hat{L}} \cdot \underline{\Hat{S}}$, we find:
+
+\begin{equation}
+    \frac{-e}{2m^2c^2} \frac{1}{r} \frac{\partial V}{\partial r} \underline{L} \cdot \underline{S}.
+    \label{SOCPerturbationForm1}
+\end{equation}
+
+\noindent There are a number of other forms that this operator can take, the most useful of which is found using:
+
+\begin{equation}
+    \Hat{J}^2 = (\Hat{L} + \Hat{S})^2 = \Hat{L}^2 + \Hat{S}^2 + 2 \Hat{L} \cdot \Hat{S},
+    \label{TotalAngularMomentumExpansion}
+\end{equation}
+
+\noindent in combination with Eq~\ref{SOCPerturbationForm1}:
+
+\begin{equation}
+    \Hat{V}_{SOC} = f(r)[j(j + 1) - l(l + 1) - s(s + 1)],
+    \label{SOCPerturbationForm2}
+\end{equation}
+
+\noindent where it should be noted that the square brackets here don't mean commutator they are just brackets, and $f(r)$ is given by:
+
+\begin{equation}
+    f(r) = \frac{\hbar^2}{4m^2c^2} \frac{1}{r} \frac{\partial V_c}{\partial r},
+    \label{f(r)Form}
+\end{equation}
+
+\noindent where $V_c(r)$ is the potential energy of the electron in the nucleus' electric field, $\frac{-Ze^2}{4\pi\epsilon_0 r}$.
+
+\subsection{Correct eigenstates using symmetry}
+
+As I said at the end of Section~\ref{chapt2}, there is a more elegant way of doing degenerate PT which doesn't involve forming a matrix and finding its eigenvalues and corresponding eigenstates, but instead figuring out the correct eigenstates to use for degenerate PT using symmetry arguments.
+
+\noindent Need to mention symmetry argument for determining correct eigenstates to use for degenerate PT. Commutating operators share eigenstates, leads to diagonalisation of matrix, so can use Eq~\ref{FirstOrderEnergyCorrectionsDegenerate}, which is just the modified version of Eq~\ref{FirstOrderEnergyCorrection}, which accounts for degeneracy.
 
 \subsection{Spin-Orbit Coupling}
 
