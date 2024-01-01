@@ -84,7 +84,7 @@ The Zeeman effect involves an external magnetic field coupling to the magnetic m
     \label{SOCPerturbationForm2}
 \end{equation}
 
-\noindent where it should be noted that the square brackets here don't mean commutator they are just brackets, and $f(r)$ is given by:
+\noindent SHOULD PROBABLY CHANGE THIS AVOID CONFUSION AS IS TECHNICALLY WRONG. where it should be noted that the square brackets here don't mean commutator they are just brackets, and $f(r)$ is given by:
 
 \begin{equation}
     f(r) = \frac{\hbar^2}{4m^2c^2} \frac{1}{r} \frac{\partial V_c}{\partial r},
@@ -95,13 +95,42 @@ The Zeeman effect involves an external magnetic field coupling to the magnetic m
 
 \subsection{Correct eigenstates using symmetry}
 
-As I said at the end of Section~\ref{chapt2}, there is a more elegant way of doing degenerate PT which doesn't involve forming a matrix and finding its eigenvalues and corresponding eigenstates, but instead figuring out the correct eigenstates to use for degenerate PT using symmetry arguments.
+As I said at the end of Section~\ref{chapt2}, there is a more elegant way of doing degenerate PT. Instead of forming a matrix and finding its eigenvalues and corresponding eigenstates, we can figure out the correct eigenstates to use for degenerate PT using symmetry arguments.
 
-\noindent Need to mention symmetry argument for determining correct eigenstates to use for degenerate PT. Commutating operators share eigenstates, leads to diagonalisation of matrix, so can use Eq~\ref{FirstOrderEnergyCorrectionsDegenerate}, which is just the modified version of Eq~\ref{FirstOrderEnergyCorrection}, which accounts for degeneracy.
+\noindent The correct eigenstates for degenerate PT are ones that commute with the unperturbed hamiltonian, $\Hat{H}_0$, the perturbation we apply, $\Hat{V}$, and an arbitrary operator, $\Hat{A}$, that we are free to choose. Once these eigenstates have been identified you can just use Eq~\ref{FirstOrderEnergyCorrectionsDegenerate} to calculate the first order energy corrections for a degenerate system. Remember this expression is just the equivalent expression for Eq~\ref{FirstOrderEnergyCorrection} that accounts for degeneracy.
+
+\noindent The reason this works is because any operators that commute with one another must share a set of common eigenstates. So if $[\Hat{H}_0, \Hat{A}] = [\Hat{V}, \Hat{A}] = 0$, then they all share a common set of eigenstates. Then so long as all the eigenvalues of $\Hat{A}$ are unique, this automatically leads to the diagonalisation condition, Eq~\ref{MatrixCondition}, being satisfied. This in turn means that those eigenstates are the correct unperturbed states for degenerate PT.
+
+\noindent I wouldn't worry too much about trying to understand why this works, just know that the correct eigenstates for degenerate PT are ones that are eigenstates of $\Hat{H}_0$, $\Hat{V}$ and another operator, $\Hat{A}$.
 
 \subsection{Spin-Orbit Coupling}
 
+We'll start off by considering the case of just SOC, so no external magnetic field has been applied. I'll start off with the symmetry argument method. Since we are considering a hydrogenic system, i.e a single electron orbiting a nucleus, the eigenstates of the unperturbed system only depend on the principal quantum number, $n$. We will use Eq~\ref{SOCPerturbationForm2} as our perturbation, which requires eigenstates that depend on $l, s$ and $j$. Now we choose our other operator, $\Hat{A}$, to be $\Hat{J}_z$. This is just the total angular momentum equivalent of $\Hat{L}_z$ or $\Hat{S}_z$, i.e $\Hat{J}_z = \Hat{L}_z + \Hat{S}_z$. This means the correct eigenstates for degenerate PT look like $\ket{n, l, s, j, m_j}$. So now we can figure out the first order energy corrections using these eigenstates and Eq~\ref{FirstOrderEnergyCorrectionsDegenerate}:
 
+\begin{equation}
+    E^1_{SOC} = \braket{n, l, s, j, m_j | \Hat{V}_{SOC} | n, l, s, j, m_j},
+    \label{FirstOrderEnergySOC}
+\end{equation}
+
+\noindent then inserting Eq~\ref{SOCPerturbationForm2} and Eq~\ref{f(r)Form}, we find:
+
+\begin{equation}
+    E^1_{SOC} = \frac{\hbar^2}{4m^2_ec^2}[j(j + 1) -l(l + 1) - s(s + 1)] \braket{\frac{1}{r}\frac{\partial V_c}{\partial r}},
+    \label{FirstOrderEnergySOCForm1}
+\end{equation}
+
+\noindent where again the square brackets are just brackets and don't mean commutator, and the expectation value of $\frac{1}{r} \frac{\partial V_c}{\partial r}$ depends on which $(n,l)$ orbital the electron occupies. You won't be asked to calculate what this expectation value is since its quite hellish to derive, but simplifying the above expression we find:
+
+\begin{equation}
+    E^1_{SOC} = \frac{|E_n| \alpha^2}{n}(\frac{1}{l + \frac{1}{2}} - \frac{1}{j + \frac{1}{2}})
+    \label{FirstOrderEnergySOCForm2}
+\end{equation}
+
+\noindent where $\alpha$ is the fine structure constant which equals $\frac{1}{137}$ and $E_n$ are the energy levels of a hydrogenic system, Eq~\ref{HydrogenicAtomEnergyLevels}. Normally the factor in front is just written as $\lambda$.
+
+\noindent From this equation we see that if we are in the $s$ orbital of an energy level, i.e $l = 0$, then $E^1_{SOC} = 0$ since $j = s = \frac{1}{2}$, meaning the energy levels remain the same. However if $l \neq 0$ then each orbital is split into 2 levels, given by $j = l \pm \frac{1}{2}$, with each level being $2j + 1$ degenerate.
+
+\noindent For the $p$ orbital, $l = 1$, then $j$ may either be $\frac{3}{2}$ or $\frac{1}{2}$, with the corresponding corrections being $E^1_{SOC} = \frac{\lambda}{6}$ and $E^1_{SOC} = \frac{-\lambda}{2}$. INSERT FIGURE.
 
 \subsection{Strong Field Zeeman Effect}
 
