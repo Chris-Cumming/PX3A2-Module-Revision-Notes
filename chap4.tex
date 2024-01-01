@@ -66,7 +66,7 @@ The Zeeman effect involves an external magnetic field coupling to the magnetic m
 \noindent where we have used that the radial unit vector, $\underline{\Hat{r}} = \frac{\underline{r}}{r}$. Then using the relations $\underline{p} = m \underline{v}$, $\underline{\Hat{L}} = \underline{\Hat{r}} \times \underline{p} = - \underline{p} \times \underline{\Hat{r}}$ and $\underline{\Hat{S}} \cdot \underline{\Hat{L}} = \underline{\Hat{L}} \cdot \underline{\Hat{S}}$, we find:
 
 \begin{equation}
-    \frac{-e}{2m^2c^2} \frac{1}{r} \frac{\partial V}{\partial r} \underline{L} \cdot \underline{S}.
+    \frac{-e}{2m^2c^2} \frac{1}{r} \frac{\partial V}{\partial r} \underline{\Hat{L}} \cdot \underline{\Hat{S}}.
     \label{SOCPerturbationForm1}
 \end{equation}
 
@@ -132,15 +132,54 @@ We'll start off by considering the case of just SOC, so no external magnetic fie
 
 \noindent For the $p$ orbital, $l = 1$, then $j$ may either be $\frac{3}{2}$ or $\frac{1}{2}$, with the corresponding corrections being $E^1_{SOC} = \frac{\lambda}{6}$ and $E^1_{SOC} = \frac{-\lambda}{2}$. INSERT FIGURE.
 
+\noindent This problem can also be solved using the brute force method, here the degenerate eigenstates are described by $\ket{m_l, m_s}$. This time we use a different form of the perturbation for SOC, we take Eq~\ref{SOCPerturbationForm1} and expand out $\underline{\Hat{L}} \cdot \underline{\Hat{S}}$ in terms of the raising and lowering operators, so that:
+
+\begin{equation}
+    \Hat{V}_{SOC} = \delta \underline{\Hat{L}} \cdot \underline{\Hat{S}} = \delta [\Hat{L}_z \Hat{S}_z + \frac{1}{2}(\Hat{L}_+ \Hat{S}_- + \Hat{L}_- \Hat{S}_+)],
+    \label{PerturbationSOCFormMatrix}
+\end{equation}
+
+\noindent where again the square brackets don't mean commutator. As we described in Section~\ref{chapt2}, we form the perturbation matrix using our degenerate eigenstates $\ket{m_l, m_s}$ and the perturbation given by Eq~\ref{PerturbationSOCFormMatrix}. At this point its very important to remember that the degenerate eigenstates are orthonormal to each other, Eq~\ref{DegenerateEigenfunctions}, as well as the effect that the raising and lowering operators have on eigenstates. Note that the raising and lowering operators will be given to you in the exam.
+
+\noindent Then calculating the eigenvalues of this matrix, which correspond to the first order energy corrections, we find that we get $E^1_{SOC} = \frac{\delta}{2}$ four times and $E^1_{SOC} = -\delta$ two times. This result matches up with that found using the correct unperturbed eigenstates, as we would expect.
+
 \subsection{Strong Field Zeeman Effect}
 
+If we apply an external magnetic field to a system, we will get the Zeeman effect. If this applied field is larger relative to the SOC field, i.e $\Hat{V}_{mag} \gg \Hat{V}_{SOC}$, then we are in the regime of the Strong field Zeeman effect. This means we can neglect any effects due to SOC and consider our unperturbed system as just the hydrogenic system again. In this case we use the neat method to find the first order energy corrections. The correct unperturbed eigenstates are given by $\ket{n, l, m_l, m_s}$, with our perturbation described by Eq~\ref{ZeemanEffectPerturbation}, so  the first order energy corrections are found using Eq~\ref{FirstOrderEnergyCorrectionsDegenerate} to be:
 
+\begin{equation}
+    E^1_{mag} = \mu_B B_z (m_l + 2m_s),
+    \label{ZeemanEffectEnergyCorrections}
+\end{equation}
 
+\noindent where $\mu_B$ is the Bohr Magneton, given by $\frac{e\hbar}{2m_e}$. Note this is also known as the Paschen-Back effect. 
+
+INSERT FIGURE HERE
 
 \subsection{Weak Field Zeeman Effect}
 
+Finally we consider what happens when we apply a small external magnetic field such that $\Hat{V}_{SOC} \gg \Hat{V}_{mag}$. This means that our unperturbed system includes SOC, i.e the unperturbed Hamiltonian is $\Hat{H}_0 + \Hat{V}_{SOC}$, with the external magnetic field acting as the perturbation. This problem again can be solved either with the brute force method or using the correct unperturbed eigenstates directly.
+
+\noindent The correct unperturbed eigenstates are, as before, $\ket{n, l, s, j, m_j}$ with the perturbation given by Eq~\ref{ZeemanEffectPerturbation}, so using Eq~\ref{FirstOrderEnergyCorrectionsDegenerate} and that $\Hat{L}_z + 2\Hat{S}_z = \Hat{L}_z + \Hat{S}_z + \Hat{S}_z = \Hat{J}_z + \Hat{S}_z$, we find that the first order energy corrections take the form:
+
+\begin{equation}
+    E^1_{mag} = m_j g_L \mu_B B,
+    \label{WeakFieldEnergyCorrections}
+\end{equation}
+
+\noindent where $g_L$ is the Lande $g$ factor:
+
+\begin{equation}
+    g_L = 1 + \frac{j (j + 1) + s (s + 1) - l (l + 1)}{2j(j + 1)}
+    \label{LandGFactor}.
+\end{equation}
+
+\noindent This means that each energy level is split into $2j + 1$ energy levels separated by $g_L \mu_B B$.
+
+\noindent Alternatively we can solve this using the brute force method. Here the degenerate eigenstates are once again $\ket{m_l, m_s}$, and we use the unmodified version of Eq~\ref{ZeemanEffectPerturbation} as our perturbation. Here we find all the corresponding perturbation matrix elements and add them to the original matrix we had when considering just SOC. Then as per usual we find the eigenvalues of this matrix to find the first order energy corrections, which are found to be: $\frac{\delta}{2} + 2\mu_B B_z$, $\frac{\delta}{2} - 2\mu_B B_z$, $\frac{\delta}{2} + \frac{2}{3}\mu_B B_z$, $-\delta + \frac{1}{3}\mu_B B_z$, $\frac{\delta}{2} - \frac{2}{3}\mu_B B_z$ and $-\delta - \frac{1}{3}\mu_B B_z$ for an $l = 1, s = \frac{1}{2}$ system.
 
 
+\noindent Can be very useful to split up matrices into smaller matrices and then find the determinants of these, as a lot of terms will be 0, so can consider 1x1, 2x2, etc determinants.
 
 \section{Key Results}
 
