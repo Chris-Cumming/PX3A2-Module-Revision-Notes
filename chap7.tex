@@ -222,8 +222,18 @@ We are now going to use time dependent PT for the emission and absorption of EM 
 We now have 2 cases to consider. The first is $\omega = \omega_{pn}$ which corresponds to stimulated absorption. So the probability of an incoming photon causing an electron to move from a lower energy state to a higher energy state is:
 
 \begin{equation}
-    P^{(1)}_{n\rightarrow p}(\tau) = \frac{E_0^2}{\hbar^2}
+    P^{(1)}_{n\rightarrow p}(\tau) = \frac{E_0^2}{\hbar^2} |\bra{\psi_p} \Hat{D}_n \ket{\psi_n}|^2 \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{(\omega_{pn} - \omega)^2}.
+    \label{StimulatedAbsorption}
 \end{equation}
+
+\noindent The second case is that of $\omega = -\omega_{pn}$ which corresponds to stimulated emission. So the probability of an incoming photon causing an electron to move from a higher energy state to a lower energy state by emitting another photon:
+
+\begin{equation}
+    P^{(1)}_{p\rightarrow n}(\tau) = \frac{E_0^2}{\hbar^2} |\bra{\psi_n} \Hat{D}_n \ket{\psi_p}|^2 \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{(\omega_{pn} - \omega)^2}.
+    \label{StimulatedEmission}
+\end{equation}
+
+There is a third mechanism for radiation interacting with matter, known as spontaneous emission. Here even if an atom is in an excited state and there are no incident photons, the electron can still move to a lower energy state. This is because due to QED there are still fields present that can cause this even in a vacuum state.
 
 \section{Key Results}
 
