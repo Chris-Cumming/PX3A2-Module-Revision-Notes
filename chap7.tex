@@ -3,13 +3,52 @@
 
 \section{Introduction}
 
+Up to this point all the systems we have solved are time independent, i.e the Hamiltonian has no time dependence $\Hat{H} \neq \Hat{H}(t)$, such that the potential energy operator, $\Hat{V}$, is only a function of position and not time: $\Hat{V} = \Hat{V}(\underline{r}).$ This is known as quantum statics. This means that the Time Dependent Schrodinger Equation (TDSE):
 
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \ket{\Psi(\underline{r}, t)} = \Hat{H}(\underline{r}) \ket{\Psi(\underline{r}, t)}
+    \label{TDSE},
+\end{equation}
+
+\noindent can be solved using separation of variables, such that we can write $\Psi(\underline{r}, t) = \psi(\underline{r}) \phi(t)$, where $\psi(\underline{r})$ satisfies the Time Independent Schrodinger Equation (TISE):
+
+\begin{equation}
+    \Hat{H}(\underline{r}) \ket{\Psi(\underline{r})} = E \ket{\Psi(\underline{r})}
+    \label{TISE}
+\end{equation}
+
+\noindent and $\phi(t) = e^{\frac{-iEt}{\hbar}}$, with $E$ the energy eigenvalue corresponding to the eigenstate $\ket{\Psi(\underline{r})}$. However in this section we consider some basic quantum dynamics, i.e $\Hat{V} = \Hat{V}(\underline{r}, t)$.
 
 \section{Derivation}
 
 \subsection{Non-Stationary States}
 
-\subsection{Quantum Jumps}
+Recall that for a quantum static system, if the system occupies an eigenstate of the time independent Hamiltonian, $\Hat{H}_0$, then it is said to be in a stationary state of the system. This just means that no matter what time you measure the system it is always in the same eigenstate with the same eigenvalue, i.e initially it's in the state $\ket{\psi_m}$ and then at some later time $t$ in state $\ket{\psi_m} e^\frac{-iE_m t}{\hbar}$ which are equivalent once a measurement is applied.
+
+\noindent However now consider what happens when the same quantum static system is not in a stationary state of the system, $\ket{\Psi(\underline{r}, t)}$. Suppose at $t = 0$s, the state of the system may be written as a linear combination of the complete set of eigenstates that the system can occupy:
+
+\begin{equation}
+    \ket{\Psi(\underline{r}, t = 0)} = \sum_n = c_n \ket{\psi_n},
+    \label{LinearCombinationStatesNonStationaryNoTimeDependence}
+\end{equation}
+
+\noindent such that:
+
+\begin{equation}
+    \ket{\Psi(\underline{r}, t)} = \sum_n = c_n \ket{\psi_n} e^\frac{-i E_n t}{\hbar}.
+    \label{LinearCombinationStatesNonStationaryTimeDependence}
+\end{equation}
+
+\noindent This linear combination of stationary states means that we have a system described by a Hamiltonian which is inherently time independent that can undergo transitions between different states assuming the system doesn't start in a stationary state.
+
+\noindent This should become more clear after the following 2-level system example.
+
+
+
+
+\subsection{Time Dependent Perturbation Theory}
+
+\subsection{Emission and Absorption of EM radiation}
 
 \section{Key Results}
 
