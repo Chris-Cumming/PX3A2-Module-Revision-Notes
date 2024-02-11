@@ -72,9 +72,158 @@ Recall that for a quantum static system, if the system occupies an eigenstate of
 
 \subsection{Time Dependent Perturbation Theory}
 
-In general to allow the quantum jumps between energy eigenstates we saw in the previous section we can allow $\Hat{H} = \Hat{H}(\underline{r}, t)$. This is normally done by introducing a time dependent potential, $\Hat{V}(t)$, which we can treat as a perturbation if $\Hat{V}(t) \ll \Hat{H}_0$. This is known as time dependent perturbation theory.
+In general to allow the quantum jumps between energy eigenstates we saw in the previous section we can allow $\Hat{H} = \Hat{H}(\underline{r}, t)$. This is normally done by introducing a time dependent potential, $\Hat{V}(t)$, which we can treat as a perturbation if $\Hat{V}(t) \ll \Hat{H}_0$. This is known as time dependent perturbation theory. In general the Hamiltonian of the system will now be:
+
+\begin{equation}
+    \Hat{H} = \Hat{H}_0 + \Hat{V}(t)
+    \label{TimeDependentHamiltonian}
+\end{equation}
+
+\noindent If we introduce a time dependent perturbation, $\Hat{V}(t)$, to our 2 level system, Eq~\ref{TwoLevelSystemGeneralState} becomes:
+
+\begin{equation}
+    \ket{\Psi(\underline{r}, t)} = c_m(t) \ket{\psi_m} e^\frac{-i E_m t}{\hbar} + c_n(t) \ket{\psi_n} e^\frac{-i E_n t}{\hbar},
+    \label{TwoLevelPerturbedSystemGeneralState}
+\end{equation}
+
+\noindent where the coefficients are now functions of time. We wish to determine the form of these coefficients. We can generalise this argument easily to an $n$ level system with $n$ eigenstates. We can solve for each $c_n(t)$ by demanding that our linear superposition of states, analogous to Eq~\ref{LinearCombinationStatesNonStationaryTimeDependence}, obeys the TDSE, Eq~\ref{TDSE}, which results in:
+
+\begin{equation}
+    i \hbar \sum_n \Dot{c}_n(t) \ket{\psi_n} e^\frac{-i E_n t}{\hbar} = \sum_n \Hat{V}(t) \ket{\psi_n} e^\frac{-i E_n t}{\hbar} c_n(t).
+\end{equation}
+
+\noindent Then pre-multiplying the above equation by $\bra{\psi_p}$, i.e take the inner product, we find:
+
+\begin{equation}
+    i \hbar \Dot{c}_p(t) = \sum_n V_{pn}(t) e^{i \omega_{pn} t} c_n(t)
+    \label{TDSECondition}
+\end{equation}
+
+\noindent where $V_{pn} = \bra{\psi_p} \Hat{V} \ket{\psi_n}$ and $\omega_{pn} = \frac{E_p - E_n}{\hbar}$, which is known as the Bohr frequency. Note on the LHS of the equation we have used the orthonormality of the eigenstates to remove the summation. Up to this point we haven't actually applied any perturbative expansions, all of this is exact. However we now assume $\Hat{V}(t)$ is small and that the system begins in an eigenstate of the system, i.e $c_p(0) = \delta_{pn}$, so that to first order we find from Eq~\ref{TDSECondition}:
+
+\begin{equation}
+    i \hbar \Dot{c}^{(1)}_p(t) = V_{pn}(t) e^{i \omega_{pn} t},
+    \label{FirstOrderTimeDependentPT}
+\end{equation}
+
+\noindent where the superscript on the coefficient represents to first order. We find this equation from substituting the zeroth order values onto the RHS of Eq~\ref{TDSECondition}. Now utilising the initial state condition above and Eq~\ref{FirstOrderTimeDependentPT} we find for $p = n$:
+
+\begin{equation}
+    c^{1}_n(\tau) = 1 + \frac{1}{i \hbar} \int_0^\tau V_{nn}(t) dt,
+    \label{CoefficientN}
+\end{equation}
+
+\noindent and:
+
+\begin{equation}
+    c^{1}_p(\tau) = \frac{1}{i \hbar} \int_0^\tau V_{pn}(t)e^{i\omega_{pn}t} dt.
+    \label{CoefficientP}
+\end{equation}
+
+\noindent Here we interpret $|c^{1}_p(\tau)|^2$ as the probability to first order that after some time $\tau$ the system has performed a transition from state $\ket{\psi_n}$ to $\ket{\psi_p}$. But note that for first order PT to be valid we require:
+
+\begin{equation}
+    P^{(1)}_{n \rightarrow p}(\tau) = |c^{1}_p(\tau)|^2 \ll 1,
+    \label{ConditionFirstOrderPT}
+\end{equation}
+
+\noindent i.e that the probability of such a transition occurring is much smaller compared to the system remaining in its initial state.
+
+\noindent We now consider a specific example where the perturbation is sinusoidal in time:
+
+\begin{equation}
+    \Hat{V}(\underline{r}, t) = \Hat{V}(\underline{r}) \cos(\omega t)
+    \label{SinusoidalPerturbation}.
+\end{equation}
+
+Using this form of the perturbation in Eq~\ref{CoefficientP} and considering only driving frequencies, $\omega$, that are close to the resonant Bohr frequency, $\omega_{pn}$ we find:
+
+\begin{equation}
+    c^{(1)}_p(\tau) = -i \frac{V_{pn}}{\hbar} \frac{\sin[(\omega_{pn} - \omega)\frac{\tau}{2}]}{\omega_{pn} - \omega} e^{i(\omega_{pn} - \omega) \frac{\tau}{2}},
+    \label{SinusoidalPerturbationCoefficient}
+\end{equation}
+
+\noindent therefore the resulting probability is:
+
+\begin{equation}
+    P^{(1)}_{n \rightarrow p}(\tau) = \frac{{V_{pn}}^2}{\hbar^2} \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{{\omega_{pn} - \omega}^2}
+    \label{SinusoidalPerturbationProbability}.
+\end{equation}
+
+\noindent Note how this probability oscillates with time. Note for future reference, the approximation of considering only $\omega \simeq \omega_{pn}$ is known as the rotating wave approximation.
+
+\noindent We now consider the case where the system isn't in a stationary state and our perturbation is time independent, $\Hat{V} \neq \Hat{V}(t)$. So transitions will occur, as before in Section 7.2.1, which means we can use time dependent PT. Then from Eq~\ref{CoefficientP} we find that:
+
+\begin{equation}
+    c^{(1)}_p(\tau) = \frac{V_{pn}}{\hbar \omega_{pn}} (1 - e^{i \omega_{pn} \tau}),
+\end{equation}
+
+\noindent and the resulting probability:
+
+\begin{equation}
+    P^{(1)}_{n \rightarrow p}(\tau) = \frac{4 |V_{pn}|^2}{\hbar^2} \frac{\sin^2(\frac{\omega_{pn} \tau}{2})}{\omega_{pn}^2}.
+\end{equation}
+
+\noindent Time dependent PT can also be used for when the final states are not discret and well separated - i.e they form a continuum. The number of states within some interval is given by $\rho(E_p) dE_p$, then we find:
+
+\begin{equation}
+    P^{(1)}_{n \rightarrow G}(\tau) = \tau \frac{2\pi}{\hbar}[|V_{pn}|^2 \rho(E_p)]_{E_p = E_n}.
+\end{equation}
+
+\noindent It's important to note that this is proportional to $\tau$, so the transition probability per unit time:
+
+\begin{equation}
+    R^{(1)}_{n \rightarrow G}(\tau) = \frac{2\pi}{\hbar}[|V_{pn}|^2 \rho(E_p)]_{E_p = E_n}.
+    \label{FermiGoldenRuleContinuum}
+\end{equation}
+
+This is known as Fermi's Golden Rule. The equivalent Fermi's Golden Rule for transitions between 2 discrete states is:
+
+\begin{equation}
+    R^{(1)}_{n \rightarrow G}(\tau) = \frac{2\pi}{\hbar}|V_{pn}|^2 \delta(E_p - E_n).
+\end{equation}
 
 \subsection{Emission and Absorption of EM radiation}
+
+We are now going to use time dependent PT for the emission and absorption of EM radiation by an atom. The atom primarily responds to the electric component of the EM field:
+
+\begin{equation}
+    \underline{E}(\underline{r}, t) = E_0 \underline{\Hat{n}}\cos(\underline{k} \cdot \underline{r} - \omega t),
+\end{equation}
+
+\noindent where assuming the wavelength of EM radiation is much larger compared to the size of the atom we can neglect the spatial variation of the field, this is known as the dipole approximation, and results in the electric field taking the form:
+
+\begin{equation}
+    \underline{E}(\underline{r}, t) = E_0 \underline{\Hat{n}}\cos(\omega t).
+    \label{DipoleApproximationElectricField}
+\end{equation}
+
+\noindent This means that our perturbation takes the form:
+
+\begin{equation}
+    \Hat{V}(t) = \underline{\Hat{D}} \cdot \underline{E}(t) = \frac{1}{2} \Hat{D}_n E_0 (e^{i\omega t)} + e^{-i\omega t)}
+    \label{PerturbationEM},
+\end{equation}
+
+\noindent where $\underline{\Hat{D}}$ is the electric dipole operator of the atom:
+
+\begin{equation}
+    \underline{\Hat{D}} = -q \sum_{j = 1}^Z \underline{\Hat{r}}_j
+    \label{ElectricDipoleOperator}
+\end{equation}
+
+\noindent This is effectively a sum over all the positions of the electrons that surround an atom with atomic number, $Z$. Then following the same procedure as before we find:
+
+\begin{equation}
+    c^{(1)}_p(\tau) = \frac{E_0}{2i\hbar}\bra{\psi_p} \Hat{D}_n \ket{\psi_n}\left[\frac{e^{i(\omega_{pn} - \omega)\tau} - 1}{i(\omega_{pn} - \omega)} + \frac{e^{i(\omega_{pn} + \omega)\tau} - 1}{i(\omega_{pn} + \omega)}\right].
+    \label{CoefficientEM}
+\end{equation}
+
+We now have 2 cases to consider. The first is $\omega = \omega_{pn}$ which corresponds to stimulated absorption. So the probability of an incoming photon causing an electron to move from a lower energy state to a higher energy state is:
+
+\begin{equation}
+    P^{(1)}_{n\rightarrow p}(\tau) = \frac{E_0^2}{\hbar^2}
+\end{equation}
 
 \section{Key Results}
 
