@@ -39,14 +39,40 @@ Recall that for a quantum static system, if the system occupies an eigenstate of
     \label{LinearCombinationStatesNonStationaryTimeDependence}
 \end{equation}
 
-\noindent This linear combination of stationary states means that we have a system described by a Hamiltonian which is inherently time independent that can undergo transitions between different states assuming the system doesn't start in a stationary state.
+\noindent This linear combination of stationary states means that we have a system described by a Hamiltonian which is inherently time independent that can undergo transitions (or quantum jumps) between different states assuming the system doesn't start in a stationary state.
 
-\noindent This should become more clear after the following 2-level system example.
+\noindent This should become more clear after the following 2-level system example. Consider a system with Hamiltonian, $\hat{H}_0$, which is initially in the state:
 
+\begin{equation}
+    \ket{\Psi(\underline{r}, t = 0)} = c_m \ket{\psi_m} + c_n \ket{\psi_n},
+    \label{TwoLevelSystemInitialState}
+\end{equation}
 
+\noindent where $\ket{\psi_m}$ and $\ket{\psi_n}$ are the orthonormal eigenstates corresponding to the two levels of this system, with eigenvalues $E_m$ and $E_n$ respectively. This means that in the absence of any perturbation we have:
 
+\begin{equation}
+    \ket{\Psi(\underline{r}, t)} = c_m \ket{\psi_m} e^\frac{-i E_m t}{\hbar} + c_n \ket{\psi_n} e^\frac{-i E_n t}{\hbar},
+    \label{TwoLevelSystemGeneralState}
+\end{equation}
+
+\noindent where we note that normalisation requires $|c_m|^2 + |c_n|^2 = 1$. Consider the expectation value of this system with respect to some arbitrary time independent operator $\Hat{A}$:
+
+\begin{equation}
+    \bra{\psi}\Hat{A}\ket{\psi} = \langle a \rangle _t = |c_m|^2 A_{mm} + |c_n|^2 A_{nn} + 2 \Re e[c_m^* c_n A_{mn} e^{i\omega t}],
+    \label{TwoLevelSystemExpectationValue}
+\end{equation}
+
+\noindent where $\ket{\psi}$ is given by Eq~\ref{TwoLevelSystemGeneralState}, $\omega = \frac{E_m - E_n}{\hbar}$, $A_{mn} = \bra{\psi_m}\Hat{A}\ket{\psi_n}$ and we use the fact that $\Hat{A}$ is hermitian. Note the subscript $t$ on $\langle a \rangle$ denotes that the expectation value varies with time. From Eq~\ref{TwoLevelSystemExpectationValue} we can see that $\langle a \rangle _t$ oscillates with a period $T = \frac{2\pi}{\omega}$ between:
+
+\begin{equation}
+    |c_m|^2 A_{mm} + |c_n|^2 A_{nn} \pm 2 c_m^* c_n A_{mn},
+\end{equation}
+
+\noindent since $\Re e[e^{i \omega t}] = \cos(\omega t)$. This oscillation represents the transitions or quantum jumps between eigenstates.
 
 \subsection{Time Dependent Perturbation Theory}
+
+In general to allow the quantum jumps between energy eigenstates we saw in the previous section we can allow $\Hat{H} = \Hat{H}(\underline{r}, t)$. This is normally done by introducing a time dependent potential, $\Hat{V}(t)$, which we can treat as a perturbation if $\Hat{V}(t) \ll \Hat{H}_0$. This is known as time dependent perturbation theory.
 
 \subsection{Emission and Absorption of EM radiation}
 
