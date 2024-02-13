@@ -25,7 +25,7 @@ Up to this point all the systems we have solved are time independent, i.e the Ha
 
 Recall that for a quantum static system, if the system occupies an eigenstate of the time independent Hamiltonian, $\Hat{H}_0$, then it is said to be in a stationary state of the system. This just means that no matter what time you measure the system it is always in the same eigenstate with the same eigenvalue, i.e initially it's in the state $\ket{\psi_m}$ and then at some later time $t$ in state $\ket{\psi_m} e^\frac{-iE_m t}{\hbar}$ which are equivalent once a measurement is applied.
 
-\noindent However now consider what happens when the same quantum static system is not in a stationary state of the system, $\ket{\Psi(\underline{r}, t)}$. Suppose at $t = 0$s, the state of the system may be written as a linear combination of the complete set of eigenstates that the system can occupy:
+\noindent However now consider what happens when the same quantum static system is not in a stationary state of the system, $\ket{\Psi(\underline{r}, t)}$. Suppose at $t = 0$, the state of the system may be written as a linear combination of the complete set of eigenstates that the system can occupy:
 
 \begin{equation}
     \ket{\Psi(\underline{r}, t = 0)} = \sum_n = c_n \ket{\psi_n},
@@ -39,7 +39,7 @@ Recall that for a quantum static system, if the system occupies an eigenstate of
     \label{LinearCombinationStatesNonStationaryTimeDependence}
 \end{equation}
 
-\noindent This linear combination of stationary states means that we have a system described by a Hamiltonian which is inherently time independent that can undergo transitions (or quantum jumps) between different states assuming the system doesn't start in a stationary state.
+\noindent This linear combination of stationary states means that we have a system, described by a Hamiltonian which is inherently time independent, that can undergo transitions (or quantum jumps) between different states assuming the system doesn't start in a stationary state.
 
 \noindent This should become more clear after the following 2-level system example. Consider a system with Hamiltonian, $\hat{H}_0$, which is initially in the state:
 
@@ -48,7 +48,7 @@ Recall that for a quantum static system, if the system occupies an eigenstate of
     \label{TwoLevelSystemInitialState}
 \end{equation}
 
-\noindent where $\ket{\psi_m}$ and $\ket{\psi_n}$ are the orthonormal eigenstates corresponding to the two levels of this system, with eigenvalues $E_m$ and $E_n$ respectively. This means that in the absence of any perturbation we have:
+\noindent where $\ket{\psi_m}$ and $\ket{\psi_n}$ are the orthonormal eigenstates of the system, with eigenvalues $E_m$ and $E_n$ respectively. This means that in the absence of any perturbation we have:
 
 \begin{equation}
     \ket{\Psi(\underline{r}, t)} = c_m \ket{\psi_m} e^\frac{-i E_m t}{\hbar} + c_n \ket{\psi_n} e^\frac{-i E_n t}{\hbar},
@@ -62,7 +62,7 @@ Recall that for a quantum static system, if the system occupies an eigenstate of
     \label{TwoLevelSystemExpectationValue}
 \end{equation}
 
-\noindent where $\ket{\psi}$ is given by Eq~\ref{TwoLevelSystemGeneralState}, $\omega = \frac{E_m - E_n}{\hbar}$, $A_{mn} = \bra{\psi_m}\Hat{A}\ket{\psi_n}$ and we use the fact that $\Hat{A}$ is hermitian. Note the subscript $t$ on $\langle a \rangle$ denotes that the expectation value varies with time. From Eq~\ref{TwoLevelSystemExpectationValue} we can see that $\langle a \rangle _t$ oscillates with a period $T = \frac{2\pi}{\omega}$ between:
+\noindent where $\ket{\psi}$ is given by Eq~\ref{TwoLevelSystemGeneralState}, $\omega = \frac{E_m - E_n}{\hbar}$, $A_{mn} = \bra{\psi_m}\Hat{A}\ket{\psi_n}$ and we have used the hermiticity of $\Hat{A}$. Note the subscript $t$ on $\langle a \rangle$ denotes that the expectation value varies with time. From Eq~\ref{TwoLevelSystemExpectationValue} we can see that $\langle a \rangle _t$ oscillates with a period $T = \frac{2\pi}{\omega}$ between:
 
 \begin{equation}
     |c_m|^2 A_{mm} + |c_n|^2 A_{nn} \pm 2 c_m^* c_n A_{mn},
@@ -72,7 +72,7 @@ Recall that for a quantum static system, if the system occupies an eigenstate of
 
 \subsection{Time Dependent Perturbation Theory}
 
-In general to allow the quantum jumps between energy eigenstates we saw in the previous section we can allow $\Hat{H} = \Hat{H}(\underline{r}, t)$. This is normally done by introducing a time dependent potential, $\Hat{V}(t)$, which we can treat as a perturbation if $\Hat{V}(t) \ll \Hat{H}_0$. This is known as time dependent perturbation theory. In general the Hamiltonian of the system will now be:
+In general, to allow the quantum jumps between energy eigenstates we saw in the previous section we can allow $\Hat{H} = \Hat{H}(\underline{r}, t)$. This is normally done by introducing a time dependent potential, $\Hat{V}(t)$, which we can treat as a perturbation if $\Hat{V}(t) \ll \Hat{H}_0$. This is known as time dependent perturbation theory. This means that the Hamiltonian of the system will now take the form:
 
 \begin{equation}
     \Hat{H} = \Hat{H}_0 + \Hat{V}(t)
@@ -86,13 +86,20 @@ In general to allow the quantum jumps between energy eigenstates we saw in the p
     \label{TwoLevelPerturbedSystemGeneralState}
 \end{equation}
 
-\noindent where the coefficients are now functions of time. We wish to determine the form of these coefficients. We can generalise this argument easily to an $n$ level system with $n$ eigenstates. We can solve for each $c_n(t)$ by demanding that our linear superposition of states, analogous to Eq~\ref{LinearCombinationStatesNonStationaryTimeDependence}, obeys the TDSE, Eq~\ref{TDSE}, which results in:
+\noindent where the coefficients are now functions of time. We wish to determine the form of these coefficients. We can generalise this argument easily to an $n$ level system with $n$ eigenstates. We can solve for each $c_n(t)$ by demanding that our linear superposition of states, analogous to Eq~\ref{TwoLevelPerturbedSystemGeneralState}: 
+
+\begin{equation}
+    \ket{\Psi(\underline{r}, t)} = \sum_n c_n(t) \ket{\psi_n} e^\frac{-i E_n t}{\hbar}
+    \label{GeneralTimeDependentPerturbationWavefunction}
+\end{equation}
+
+\noindent obeys the TDSE, Eq~\ref{TDSE}, which results in:
 
 \begin{equation}
     i \hbar \sum_n \Dot{c}_n(t) \ket{\psi_n} e^\frac{-i E_n t}{\hbar} = \sum_n \Hat{V}(t) \ket{\psi_n} e^\frac{-i E_n t}{\hbar} c_n(t).
 \end{equation}
 
-\noindent Then pre-multiplying the above equation by $\bra{\psi_p}$, i.e take the inner product, we find:
+\noindent By pre-multiplying the above equation by $\bra{\psi_p}$, i.e take the inner product, we find:
 
 \begin{equation}
     i \hbar \Dot{c}_p(t) = \sum_n V_{pn}(t) e^{i \omega_{pn} t} c_n(t)
@@ -120,14 +127,14 @@ In general to allow the quantum jumps between energy eigenstates we saw in the p
     \label{CoefficientP}
 \end{equation}
 
-\noindent Here we interpret $|c^{1}_p(\tau)|^2$ as the probability to first order that after some time $\tau$ the system has performed a transition from state $\ket{\psi_n}$ to $\ket{\psi_p}$. But note that for first order PT to be valid we require:
+\noindent Here we interpret $|c^{1}_p(\tau)|^2$ as the probability to first order that after some time $\tau$ the system has performed a transition from state $\ket{\psi_n}$ to $\ket{\psi_p}$. Note that for first order PT to be valid we require:
 
 \begin{equation}
     P^{(1)}_{n \rightarrow p}(\tau) = |c^{1}_p(\tau)|^2 \ll 1,
     \label{ConditionFirstOrderPT}
 \end{equation}
 
-\noindent i.e that the probability of such a transition occurring is much smaller compared to the system remaining in its initial state.
+\noindent i.e that the probability of such a transition occurring is much smaller compared to the probability of the system remaining in its initial state.
 
 \noindent We now consider a specific example where the perturbation is sinusoidal in time:
 
@@ -136,7 +143,7 @@ In general to allow the quantum jumps between energy eigenstates we saw in the p
     \label{SinusoidalPerturbation}.
 \end{equation}
 
-Using this form of the perturbation in Eq~\ref{CoefficientP} and considering only driving frequencies, $\omega$, that are close to the resonant Bohr frequency, $\omega_{pn}$ we find:
+\noindent Using this form of the perturbation in Eq~\ref{CoefficientP} and considering only driving frequencies, $\omega$, that are close to the resonant Bohr frequency, $\omega_{pn}$ we find:
 
 \begin{equation}
     c^{(1)}_p(\tau) = -i \frac{V_{pn}}{\hbar} \frac{\sin[(\omega_{pn} - \omega)\frac{\tau}{2}]}{\omega_{pn} - \omega} e^{i(\omega_{pn} - \omega) \frac{\tau}{2}},
@@ -146,11 +153,11 @@ Using this form of the perturbation in Eq~\ref{CoefficientP} and considering onl
 \noindent therefore the resulting probability is:
 
 \begin{equation}
-    P^{(1)}_{n \rightarrow p}(\tau) = \frac{{V_{pn}}^2}{\hbar^2} \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{{\omega_{pn} - \omega}^2}
+    P^{(1)}_{n \rightarrow p}(\tau) = \frac{{V_{pn}}^2}{\hbar^2} \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{{(\omega_{pn} - \omega})^2}
     \label{SinusoidalPerturbationProbability}.
 \end{equation}
 
-\noindent Note how this probability oscillates with time. Note for future reference, the approximation of considering only $\omega \simeq \omega_{pn}$ is known as the rotating wave approximation.
+\noindent Note how this probability oscillates with time. Further note, for future reference, that the approximation of considering only $\omega \simeq \omega_{pn}$ is known as the rotating wave approximation.
 
 \noindent We now consider the case where the system isn't in a stationary state and our perturbation is time independent, $\Hat{V} \neq \Hat{V}(t)$. So transitions will occur, as before in Section 7.2.1, which means we can use time dependent PT. Then from Eq~\ref{CoefficientP} we find that:
 
@@ -164,20 +171,20 @@ Using this form of the perturbation in Eq~\ref{CoefficientP} and considering onl
     P^{(1)}_{n \rightarrow p}(\tau) = \frac{4 |V_{pn}|^2}{\hbar^2} \frac{\sin^2(\frac{\omega_{pn} \tau}{2})}{\omega_{pn}^2}.
 \end{equation}
 
-\noindent Time dependent PT can also be used for when the final states are not discret and well separated - i.e they form a continuum. The number of states within some interval is given by $\rho(E_p) dE_p$, then we find:
+\noindent Time dependent PT can also be used for when the final states are not discrete and well separated - i.e they form a continuum. The number of states within some interval is given by $\rho(E_p) dE_p$, then we find:
 
 \begin{equation}
     P^{(1)}_{n \rightarrow G}(\tau) = \tau \frac{2\pi}{\hbar}[|V_{pn}|^2 \rho(E_p)]_{E_p = E_n}.
 \end{equation}
 
-\noindent It's important to note that this is proportional to $\tau$, so the transition probability per unit time:
+\noindent It's important to note that this is proportional to $\tau$, so the transition probability per unit time is given by:
 
 \begin{equation}
     R^{(1)}_{n \rightarrow G}(\tau) = \frac{2\pi}{\hbar}[|V_{pn}|^2 \rho(E_p)]_{E_p = E_n}.
     \label{FermiGoldenRuleContinuum}
 \end{equation}
 
-This is known as Fermi's Golden Rule. The equivalent Fermi's Golden Rule for transitions between 2 discrete states is:
+\noindent This is known as Fermi's Golden Rule. The equivalent Fermi's Golden Rule for transitions between 2 discrete states is:
 
 \begin{equation}
     R^{(1)}_{n \rightarrow G}(\tau) = \frac{2\pi}{\hbar}|V_{pn}|^2 \delta(E_p - E_n).
@@ -185,7 +192,7 @@ This is known as Fermi's Golden Rule. The equivalent Fermi's Golden Rule for tra
 
 \subsection{Emission and Absorption of EM radiation}
 
-We are now going to use time dependent PT for the emission and absorption of EM radiation by an atom. The atom primarily responds to the electric component of the EM field:
+We are now going to use time dependent PT for the emission and absorption of EM radiation by an atom. The atom primarily interacts with the electric component of the EM field:
 
 \begin{equation}
     \underline{E}(\underline{r}, t) = E_0 \underline{\Hat{n}}\cos(\underline{k} \cdot \underline{r} - \omega t),
@@ -201,7 +208,7 @@ We are now going to use time dependent PT for the emission and absorption of EM 
 \noindent This means that our perturbation takes the form:
 
 \begin{equation}
-    \Hat{V}(t) = \underline{\Hat{D}} \cdot \underline{E}(t) = \frac{1}{2} \Hat{D}_n E_0 (e^{i\omega t)} + e^{-i\omega t)}
+    \Hat{V}(t) = \underline{\Hat{D}} \cdot \underline{E}(t) = \frac{1}{2} \Hat{D}_n E_0 (e^{i\omega t} + e^{-i\omega t})
     \label{PerturbationEM},
 \end{equation}
 
@@ -219,21 +226,21 @@ We are now going to use time dependent PT for the emission and absorption of EM 
     \label{CoefficientEM}
 \end{equation}
 
-We now have 2 cases to consider. The first is $\omega = \omega_{pn}$ which corresponds to stimulated absorption. So the probability of an incoming photon causing an electron to move from a lower energy state to a higher energy state is:
+\noindent We now have 2 cases to consider. The first is $\omega = \omega_{pn}$ which corresponds to stimulated absorption. So the probability of an incoming photon causing an electron to move from a lower energy state to a higher energy state is:
 
 \begin{equation}
     P^{(1)}_{n\rightarrow p}(\tau) = \frac{E_0^2}{\hbar^2} |\bra{\psi_p} \Hat{D}_n \ket{\psi_n}|^2 \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{(\omega_{pn} - \omega)^2}.
     \label{StimulatedAbsorption}
 \end{equation}
 
-\noindent The second case is that of $\omega = -\omega_{pn}$ which corresponds to stimulated emission. So the probability of an incoming photon causing an electron to move from a higher energy state to a lower energy state by emitting another photon:
+\noindent The second case is that of $\omega = -\omega_{pn}$ which corresponds to stimulated emission. So the probability of an incoming photon causing an electron to move from a higher energy state to a lower energy state by emitting another photon is given by:
 
 \begin{equation}
     P^{(1)}_{p\rightarrow n}(\tau) = \frac{E_0^2}{\hbar^2} |\bra{\psi_n} \Hat{D}_n \ket{\psi_p}|^2 \frac{\sin^2[(\omega_{pn} - \omega)\frac{\tau}{2}]}{(\omega_{pn} - \omega)^2}.
     \label{StimulatedEmission}
 \end{equation}
 
-There is a third mechanism for radiation interacting with matter, known as spontaneous emission. Here even if an atom is in an excited state and there are no incident photons, the electron can still move to a lower energy state. This is because due to QED there are still fields present that can cause this even in a vacuum state.
+\noindent There is a third mechanism for radiation interacting with matter, known as spontaneous emission. Here even if an atom is in an excited state and there are no incident photons, the electron can still move to a lower energy state. This is because due to QED there are still fields present that the atom can interact with which can cause this photon emission even in a vacuum state.
 
 \section{Key Results}
 
