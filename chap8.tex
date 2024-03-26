@@ -3,9 +3,93 @@
 
 \section{Introduction}
 
+This chapter's purpose is to serve as an introduction to how a laser actually works. It describes the operation of a laser mainly using Einstein coefficients and briefly motivates the use of time dependent PT which was described in the previous chapter. This chapter ends with the key components required for a laser to  work.
+
 \section{Derivation}
 
+A laser produces coherent, highly directional and near monochromatic light by using Light Amplification by Stimulated Emission of Radiation (LASER). This process involves exciting electrons to higher energy levels of an atom and then using an external source of photons to cause stimulated emission via the electrons in higher energy levels which in turn produces more photons.
+
 \subsection{Einstein Coefficients}
+
+Einstein was the first to attempt to model this. He did so by considering an atom with two energy levels, $E_j$ and $E_i$, where $E_j$ is the ground state energy level that are separated by $h\nu$. He then assumed that there were three processes that an electron within this system can undergo in the presence of light and that each of these processes had some constant associated with them. He assumed that these processes were: the system could absorb an external photon thereby moving the electron to a higher energy level with coefficient, $B_{ji}$; the electron within the system can move to a lower energy level emitting a photon, due to the presence of an external photon, with constant $B_{ij}$; the system could spontaneously emit a photon by moving an electron to a lower energy level which has a coefficient, $A_{ij}$. 
+
+\noindent In order to remember these coefficients it might help to think that the $B$ coefficients are for when an external photon is involved whilst the $A$ coefficient is for an isolated atom. The ordering of the indices indicates which energy level the electron starts and ends in. Einstein applied this idea assuming that photons were quantised with energy $h\nu$ and that the spectral energy density of photons within a cavity is given by:
+
+\begin{equation}
+    U(\nu, T) = \frac{8\pi h \nu^3}{c^3(e^{\frac{h\nu}{k_B T}} - 1)}
+    \label{PlanckSpectralEnergyDensity}
+\end{equation}
+
+\noindent where $\nu$ is the frequency of the photon and $T$ is the temperature of the cavity.
+
+\noindent So if we consider an ensemble of identical atoms in thermal equilibrium in a cavity, then the rate of atoms which have electrons moving to the excited state:
+
+\begin{equation}
+    R_{j \rightarrow i} = N_j B_{ji} U(\nu, T)
+    \label{StimulatedAbsorptionAtoms}
+\end{equation}
+
+\noindent where $N_j$ is the number of atoms with an electron in the ground state. This is because there is only one process that can take the electron from the ground state, $E_j$, to the excited state, $E_i$, which is stimulated absorption. However, the rate of atoms with electrons moving from the excited state to the ground state is given by:
+
+\begin{equation}
+    R_{i \rightarrow j} = N_i[A_{ij} + B_{ij} U(\nu, T)]
+    \label{StimulatedSpontaneousEmissionAtoms}
+\end{equation}
+
+\noindent where $N_i$ is the number of atoms with the electron in $E_i$. Here there are the other two processes, stimulated emission and spontaneous emission which can cause electrons to move to the ground state. If we assume that the rate of atoms with electrons moving between $E_j$ and $E_i$ are equal, i.e $R_{j \rightarrow i} = R_{i \rightarrow j}$, we find that:
+
+\begin{equation}
+    U(\nu, T) = \frac{A_{ij}}{B_{ji} e^{\frac{h \nu}{k_B T}} - B_{ij}}
+    \label{SpectralEnergyDensityLaser}
+\end{equation}
+
+\noindent where we have assumed that, since the atoms are in thermal equilibrium, the population of atoms with an electron in the excited state follows the Boltzmann distribution:
+
+\begin{equation}
+    N_i = N_j e^{\frac{-h \nu}{k_B T}}
+    \label{BoltzmannDistributionPopulationStates}
+\end{equation}
+
+\noindent If we compare Eq~\ref{SpectralEnergyDensityLaser} to Eq~\ref{PlanckSpectralEnergyDensity}, we find that when in thermal equilibrium:
+
+\begin{eqnarray}
+    B_{ij} = B_{ji} \label{InitialEinsteinCondition}\\
+    \frac{A_{ij}}{B_{ji}} = \frac{8 \pi h \nu^3}{c^2} \label{FinalEinsteinCondition}
+\end{eqnarray}
+
+\noindent As a result, if we can experimentally determine one of the coefficients then we can determine the other two coefficients as well.
+
+\noindent Instead of the rate of change of atoms with electrons in some particular energy level, we can consider the rate of change of the number of photons within some cavity simply by modifying Eq\ref{StimulatedAbsorptionAtoms} and Eq~\ref{StimulatedSpontaneousEmissionAtoms} to include the number of photons with a particular frequency, $N(\nu$, instead of $U(\nu, T)$, such that:
+
+\begin{equation}
+    \frac{dN^+}{dt} = N_i A_{ij} + N_i B_{ij} N(\nu)
+    \label{StimulatedSpontaneousEmissionPhotons}
+\end{equation}
+
+\noindent is the rate of increase of photons within the cavity and:
+
+\begin{equation}
+    \frac{dN^-}{dt} = N_j B_{ji} N(\nu)
+    \label{StimulatedAbsorptionPhotons}
+\end{equation}
+
+\noindent is the rate of decrease of photons within the cavity. There will also be a loss of photons due to leakage from the cavity. So the overall rate of change of photons within the cavity is given by:
+
+\begin{equation}
+    \frac{dN}{dt} = \frac{dN^+}{dt} - \frac{dN^-}{dt} = N_i A_{ij} + N_i B_{ij} N(\nu) - N_j B_{ji} N(\nu) - \frac{N(\nu)}{\tau_0}
+    \label{OverallRateChangePhotons}
+\end{equation}
+
+\noindent where the final term accounts for the leakage of photons using some characteristic timescale, $\tau_0$. If we assume that $B_{ji} = B_{ij}$, as suggested by Eq~\ref{InitialEinsteinCondition}, then we can rearrange the above expression into the following form:
+
+\begin{equation}
+    \frac{dN}{dt} = N_i A_{ij} + N(\nu)[(N_i - N_j)B_{ij} - \frac{1}{\tau_0}].
+    \label{OverallRateChangePhotonsRearranged}
+\end{equation}
+
+\noindent This shows that unless $N_i > N_j$ then $\frac{dN}{dt} < 0$, meaning the number of photons present in the cavity will decrease with time. However according to the Boltzmann distribution of the population of the states, $N_i$ and $N_j$ this won't be the case at thermal equilibrium. This means that through some non-thermal method we need to create a population inversion where there are more atoms with their electrons occupying the excited state than there are occupying the ground state. There are a number of ways of doing creating this population inversion. One of the more common methods is to use metastable states. These are states where an electron occupies them for a long period of time. A typical lasing medium that involves metastable states is a combination of Helium and Neon. First, one of the ground state He atoms is excited into an excited metastable state using an electrical discharge. This He atom will then collide with a Ne atom causing the energy the excited electron in the He atom gained to be transferred to the Ne atom, meaning one of its electrons moves into an excited state. At this point the external photon causes stimulated emission of the Ne atom, causing the excited electron to move to a lower energy excited state, where the energy difference in energy levels corresponds to the energy of the initial incoming photon. This means two photons of the same frequency are produced. The electron will then de-excite to the ground state.
+
+\noindent Need to be careful in choosing which elements are picked in order to produce particular wavelengths of light.
 
 \subsection{Time Dependent PT}
 

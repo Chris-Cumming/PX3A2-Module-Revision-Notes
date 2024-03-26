@@ -12,14 +12,14 @@ This entire section is effectively a massive example of how useful degenerate PT
 The Zeeman effect involves an external magnetic field coupling to the magnetic moments of an electron and SOC involves the coupling between these magnetic moments. In general the magnetic moment of a particle due to orbital motion is:
 
 \begin{equation}
-    \underline{\mu}_L = g_L \frac{q}{2m} \underline{L},
+    \boxed{\underline{\mu}_L = g_L \frac{q}{2m} \underline{L}},
     \label{OrbitalMagneticMoment}
 \end{equation}
 
 \noindent where $g_L$ is the orbital gyromagnetic ration, $q$ is the charge of the particle, $m$ the mass and $\underline{L}$ the orbital angular momentum vector. However all particles also have intrinisc angular momentum (spin), which also gives rise to a magnetic moment:
 
 \begin{equation}
-    \underline{\mu}_S = g_S \frac{q}{2m} \underline{S},
+    \boxed{\underline{\mu}_S = g_S \frac{q}{2m} \underline{S}},
     \label{SpinMagneticMoment}
 \end{equation}
 
@@ -30,7 +30,7 @@ The Zeeman effect involves an external magnetic field coupling to the magnetic m
 \noindent Now if we are going to apply degenerate PT to a hydrogenic system that experiences the Zeeman effect and SOC, we need to know the forms of the perturbation, $\Hat{V}$, we apply. For the Zeeman effect, the operator is found from the interaction energy between $\underline\mu$ and $\underline{B}$:
 
 \begin{equation}
-    \Hat{V}_{mag} = - \underline{\Hat{\mu}} \cdot \underline{\Hat{B}} = \frac{e}{2m}(\Hat{L}_z + 2\Hat{S}_z) \cdot B,
+    \boxed{\Hat{V}_{mag} = - \underline{\Hat{\mu}} \cdot \underline{\Hat{B}} = \frac{e}{2m}(\Hat{L}_z + 2\Hat{S}_z) \cdot B},
     \label{ZeemanEffectPerturbation}
 \end{equation}
 
@@ -53,7 +53,7 @@ The Zeeman effect involves an external magnetic field coupling to the magnetic m
 \noindent where $V$ is the scalar electric potential of the nucleus. The operator for SOC takes the form:
 
 \begin{equation}
-    \Hat{V}_{SOC} = - \frac{1}{2} \underline{\Hat{\mu}}_s \cdot \underline{\Hat{B}},
+    \boxed{\Hat{V}_{SOC} = - \frac{1}{2} \underline{\Hat{\mu}}_s \cdot \underline{\Hat{B}}},
     \label{SOCPerturbation}
 \end{equation}
 
@@ -73,7 +73,7 @@ The Zeeman effect involves an external magnetic field coupling to the magnetic m
 \noindent There are a number of other forms that this operator can take, the most useful of which is found using:
 
 \begin{equation}
-    \Hat{J}^2 = (\Hat{L} + \Hat{S})^2 = \Hat{L}^2 + \Hat{S}^2 + 2 \Hat{L} \cdot \Hat{S},
+    \boxed{\Hat{J}^2 = (\Hat{L} + \Hat{S})^2 = \Hat{L}^2 + \Hat{S}^2 + 2 \Hat{L} \cdot \Hat{S}},
     \label{TotalAngularMomentumExpansion}
 \end{equation}
 
@@ -108,7 +108,7 @@ As I said at the end of Section~\ref{chapt2}, there is a more elegant way of doi
 We'll start off by considering the case of just SOC, so no external magnetic field has been applied. I'll start off with the symmetry argument method. Since we are considering a hydrogenic system, i.e a single electron orbiting a nucleus, the eigenstates of the unperturbed system only depend on the principal quantum number, $n$. We will use Eq~\ref{SOCPerturbationForm2} as our perturbation, which requires eigenstates that depend on $l, s$ and $j$. Now we choose our other operator, $\Hat{A}$, to be $\Hat{J}_z$. This is just the total angular momentum equivalent of $\Hat{L}_z$ or $\Hat{S}_z$, i.e $\Hat{J}_z = \Hat{L}_z + \Hat{S}_z$. This means the correct eigenstates for degenerate PT look like $\ket{n, l, s, j, m_j}$. So now we can figure out the first order energy corrections using these eigenstates and Eq~\ref{FirstOrderEnergyCorrectionsDegenerate}:
 
 \begin{equation}
-    E^1_{SOC} = \braket{n, l, s, j, m_j | \Hat{V}_{SOC} | n, l, s, j, m_j},
+    \boxed{E^1_{SOC} = \braket{n, l, s, j, m_j | \Hat{V}_{SOC} | n, l, s, j, m_j}},
     \label{FirstOrderEnergySOC}
 \end{equation}
 
@@ -148,7 +148,7 @@ We'll start off by considering the case of just SOC, so no external magnetic fie
 If we apply an external magnetic field to a system, we will get the Zeeman effect. If this applied field is larger relative to the SOC field, i.e $\Hat{V}_{mag} \gg \Hat{V}_{SOC}$, then we are in the regime of the Strong field Zeeman effect. This means we can neglect any effects due to SOC and consider our unperturbed system as just the hydrogenic system again. In this case we use the neat method to find the first order energy corrections. The correct unperturbed eigenstates are given by $\ket{n, l, m_l, m_s}$, with our perturbation described by Eq~\ref{ZeemanEffectPerturbation}, so  the first order energy corrections are found using Eq~\ref{FirstOrderEnergyCorrectionsDegenerate} to be:
 
 \begin{equation}
-    E^1_{mag} = \mu_B B_z (m_l + 2m_s),
+    \boxed{E^1_{mag} = \mu_B B_z (m_l + 2m_s)},
     \label{ZeemanEffectEnergyCorrections}
 \end{equation}
 
@@ -163,14 +163,14 @@ Finally we consider what happens when we apply a small external magnetic field s
 \noindent The correct unperturbed eigenstates are, as before, $\ket{n, l, s, j, m_j}$ with the perturbation given by Eq~\ref{ZeemanEffectPerturbation}, so using Eq~\ref{FirstOrderEnergyCorrectionsDegenerate} and that $\Hat{L}_z + 2\Hat{S}_z = \Hat{L}_z + \Hat{S}_z + \Hat{S}_z = \Hat{J}_z + \Hat{S}_z$, we find that the first order energy corrections take the form:
 
 \begin{equation}
-    E^1_{mag} = m_j g_L \mu_B B,
+    \boxed{E^1_{mag} = m_j g_L \mu_B B},
     \label{WeakFieldEnergyCorrections}
 \end{equation}
 
 \noindent where $g_L$ is the Lande $g$ factor:
 
 \begin{equation}
-    g_L = 1 + \frac{j (j + 1) + s (s + 1) - l (l + 1)}{2j(j + 1)}
+    \boxed{g_L = 1 + \frac{j (j + 1) + s (s + 1) - l (l + 1)}{2j(j + 1)}}
     \label{LandGFactor}.
 \end{equation}
 
