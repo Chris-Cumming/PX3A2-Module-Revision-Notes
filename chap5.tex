@@ -36,14 +36,14 @@ It is impossible to follow and identify one particular particle when dealing wit
 We can define an operator, $\Hat{P}_{ij}$ that exchanges the $i^{th}$ and $j^{th}$ particles with each other, such that:
 
 \begin{eqnarray}
-    \Hat{P}_{ij} \Hat{H}(i, j) \ket{\psi(i, j)} = \Hat{H}(j, i) \ket{\psi(j, i)} \\
+    \Hat{P}_{ij} (\Hat{H}(i, j) \ket{\psi(i, j)}) = \Hat{H}(j, i) \ket{\psi(j, i)} \\
     \hspace{15mm} =\Hat{H}(i, j) \Hat{P}_{ij} \ket{\psi(i, j)},
 \end{eqnarray}
 
-\noindent where in between the lines we use Eq~\ref{ExchangeDegeneracy} and that $\ket{\psi(j, i)} = \Hat{P}_{ij} \ket{\psi(i, j)}$. From this we can see that:
+\noindent where in between the lines we use a generalisation of Eq~\ref{ExchangeDegeneracy} and that $\ket{\psi(j, i)} = \Hat{P}_{ij} \ket{\psi(i, j)}$. From this we can see that:
 
 \begin{equation}
-    \Hat{P}_{ij} \Hat{H}(i, j) \ket{\psi(i, j)} = \Hat{H}(i, j) \Hat{P}_{ij} \ket{\psi(i, j)},
+    \boxed{\Hat{P}_{ij} \Hat{H}(i, j) \ket{\psi(i, j)} = \Hat{H}(i, j) \Hat{P}_{ij} \ket{\psi(i, j)}},
     \label{ExchangeOperatorCommutator}
 \end{equation}
 
@@ -116,8 +116,8 @@ If our eigenstate describes a collection of identical particles with half intege
 
 In order for an eigenstate of an operator, which corresponds to a physical observable, to be physically acceptable it must also be an eigenstate of the particle exchange operator.
 
-\noindent Fermions are particles with half integer spin, they are described by Fermi-Dirac statistics, Eq~\ref{FermiDiracDistributionFunction}. Their overall eigenstate must be anti-symmetric, this is apparent when operated on by the particle exchange operator. This eigenstate can be calculated using the Slater determinant, Eq~\ref{SlaterDeterminant}. Fermions must obey the PEP, which prevents two fermions from occupying the exact same quantum state.
-
-\noindent Bosons are particles with integer spin, they are desribed by Bose-Einstein statistics, Eq~\ref{BoseEinsteinDistributionFunction}. Their overall eigenstate must symmetric, when operated on by the particle exchange operator.
-
 \noindent Changing the order of particle labels should have no measurable difference on the observable values that the operator return, this is exchange degeneracy.
+
+\noindent Fermions are particles with half integer spin, they are described by Fermi-Dirac statistics, Eq~\ref{FermiDiracDistributionFunction}. Their overall eigenstate must be anti-symmetric. This is apparent when operated on by the particle exchange operator which returns an eigenvalue of -1. This eigenstate can be calculated using the Slater determinant, Eq~\ref{SlaterDeterminant}. Fermions must obey the PEP, which prevents two fermions from occupying the exact same quantum state.
+
+\noindent Bosons are particles with integer spin, they are desribed by Bose-Einstein statistics, Eq~\ref{BoseEinsteinDistributionFunction}. Their overall eigenstate must symmetric. So when operated on by the particle exchange operator it returns an eigenvalue of +1. They have no such restriction like the PEP.
