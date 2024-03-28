@@ -32,7 +32,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \usepackage{braket}
 \usepackage{amsmath}
 
-
+\usepackage[headings]{fancyhdr} %Headers and footers package$
 
 \usepackage{rotating} % rotating table and figure
 \usepackage[T1]{fontenc}
@@ -145,7 +145,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 %\degree {Self Study} % Your degree name, print it elsewhere with \degreename
 %\shortdegree{}
 %\subjectarea{Quantum Information} % Your degree area name, print it elsewhere with \area
-\author{Chris Cumming} % Your name, print it elsewhere with \authorname
+%\author{Chris Cumming} % Your name, print it elsewhere with \authorname
 %\addresses{} % Your address, print it elsewhere with \addressname
 %\subject{Physics} % Your subject area, print it elsewhere with \subjectname
 %\keywords{} % Keywords for your thesis, print it elsewhere with \keywordnames
@@ -168,6 +168,10 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \frontmatter
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\fancyhead[R]{PX3A2: Quantum Physics of Atoms}
+\fancyhead[L]{Chris Cumming}
+%\fancyfoot[L]{}
 
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
@@ -288,7 +292,7 @@ It should be noted that throughout this module there is a mixture of wave mechan
 
 \noindent Another thing to note is that again so far you have only really been working in the Schrodinger picture. However there is also the Dirac/interaction picture and the Heisenberg picture, which are used in this module and later ones. These different pictures correspond to where we put the time dependence in quantum mechanics. In the Schrodinger picture, the time dependence is put in the eigenstates and the operators have no time dependence. Whereas in the Heisenberg picture we put the time dependence in the operators and the eigenstates are time independent. Like with wave mechanics and matrix mechanics these provide the same predictions as each other, its just in some cases choosing one over the other makes the maths simpler. The Dirac picture combines these together, such that some time dependence is in the operators and some in the eigenstates.
 
-SHOULD MENTION ABOUT THE BOXED EQUATIONS NOT NECESSARILY NEEDING TO BE MEMORISED BUT WILL REPRESENT KEY RESULTS OF SECTION. NEED TO MAKE CLEAR WHEN BOXED EQUATIONS NEED TO BE REMEMBERED. COULD MAYBE MENTION THAT SQUARE BRACKETS NORMALLY MEAN COMMUTATOR UNLESS EXPLICITLY STATE SINCE I LIKE USING THEM AS A WAY TO DISTINGUISH BETWEEN NORMAL BRACKETS. MESS AROUND WITH HEADERS AND FOOTERS.
+\noindent Throughout these notes are equations that are boxed. This is just to show that they are important results of that section but you don't necessarily have to remember them. If you do have to remember them I'll try to make that clear. Also I quite like using square brackets [~] to make equations look nicer compared to always using normal brackets (~) which might be confusing since this could also mean the commutator. Throughout the notes you should assume that [~] does mean commutator but I'll try to make it clear when they are not.
 %\clearpage
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
