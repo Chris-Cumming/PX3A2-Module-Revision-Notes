@@ -91,8 +91,13 @@ An easy way to model how a laser fundamentally works is by using Einstein coeffi
 
 \subsection{Time Dependent PT}
 
-We can use time dependent PT in order to determine the forms of the Einstein coefficients.
+In order to determine the form of the Einstein coefficients we can use time dependent PT. In this case, much like in the previous chapter, the perturbation arises due to a time varying electric field. The operator for the electric field, within a cavity, has the form:
 
-\subsection{Components and Operation of LASER}
+\begin{equation}
+    \underline{\Hat{E}}(\underline{r}, t) = \frac{1}{\sqrt{V}} \sum_{\underline{k}, \lambda}\sqrt{\frac{\hbar \omega}{2 \epsilon_0}} \underline{\epsilon}_\lambda (\underline{k}) [-i\Hat{A}^+_\lambda(\underline{k}) e^{-i(\underline{k}\cdot\underline{r} - \omega t} + i\Hat{A}^-_\lambda(\underline{k}) e^{i(\underline{k} \cdot \underline{r} - \omega t}],
+    \label{ElectricFieldOperator}
+\end{equation}
+
+\noindent where $\underline{\epsilon}_\lambda(\underline{k})$ is the polarisation vector of the photon with momentum $\underline{k}$, V is the volume of the cavity and $\Hat{A}^+_\lambda(\underline{k})$, $\Hat{A}^-_\lambda(\underline{k})$ are the creation and annihilation operators respectively for photon number states. This means they create and destroy photons with polarisation $\lambda$ and momentum $\underline{k}$.
 
 \section{Key Results}
